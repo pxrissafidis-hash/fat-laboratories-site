@@ -67,6 +67,29 @@ nav.scrolled { padding: .4rem 4rem; }
   display: flex; align-items: center; gap: .75rem;
   text-decoration: none;
   flex-shrink: 0;
+  position: relative;
+}
+.nav-logo::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 180px; height: 180px;
+  background: radial-gradient(circle, rgba(46,232,200,.4) 0%, rgba(46,232,200,.15) 30%, rgba(46,232,200,.04) 55%, transparent 75%);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: logoOrb 4s cubic-bezier(.2,0,.3,1) infinite;
+  z-index: 0;
+}
+@keyframes logoOrb {
+  0% { opacity: .08; }
+  15% { opacity: .55; }
+  25% { opacity: .35; }
+  100% { opacity: .08; }
+}
+.nav-logo img {
+  position: relative; z-index: 1;
+  filter: drop-shadow(0 0 6px rgba(46,232,200,.3));
 }
 .nav-logo-icon {
   width: 52px; height: 36px; position: relative;
@@ -1521,6 +1544,16 @@ setTimeout(() => {
       atoms: [{x:0,y:0},{x:1.2,y:.7},{x:1.2,y:2.1},{x:0,y:2.8},{x:-1.2,y:2.1},{x:-1.2,y:.7},{x:2.4,y:.1},{x:-2.4,y:.1},{x:0,y:4.1},{x:0,y:5.4},{x:-1.2,y:6.1},{x:1.2,y:6.1},{x:1.2,y:7.4},{x:0,y:8.2},{x:2.4,y:8.2},{x:-1,y:9},{x:3.4,y:9}],
       bonds: [[0,1],[1,2],[2,3],[3,4],[4,5],[5,0],[1,6],[5,7],[3,8],[8,9],[9,10],[9,11],[11,12],[12,13],[12,14],[13,15],[14,16]],
       dbl: [[9,10],[0,1],[3,4]]
+    },
+    psilocybin: {
+      atoms: [
+        {x:0,y:0},{x:1.2,y:.7},{x:1.2,y:2.1},{x:0,y:2.8},{x:-1.2,y:2.1},{x:-1.2,y:.7},
+        {x:.4,y:-1.2},{x:-1,y:-1.2},{x:-1.8,y:-.2},
+        {x:1.2,y:-2.2},{x:1.2,y:-3.5},{x:1.2,y:-4.8},{x:0,y:-5.5},{x:2.4,y:-5.5},
+        {x:-2.4,y:2.8},{x:-3.5,y:2.3},{x:-4.6,y:2.8},{x:-3.5,y:1},{x:-3.5,y:3.6}
+      ],
+      bonds: [[0,1],[1,2],[2,3],[3,4],[4,5],[5,0],[0,6],[6,7],[7,8],[8,5],[6,9],[9,10],[10,11],[11,12],[11,13],[4,14],[14,15],[15,16],[15,17],[15,18]],
+      dbl: [[0,1],[3,4],[15,17]]
     }
   };
 
@@ -1639,13 +1672,14 @@ setTimeout(() => {
   }
 
   /* Init */
-  var mols=[new FMol('ibuprofen'),new FMol('ibuprofen'),new FMol('ibuprofen'),new FMol('lidocaine'),new FMol('lidocaine'),new FMol('lidocaine')];
+  var mols=[new FMol('ibuprofen'),new FMol('ibuprofen'),new FMol('ibuprofen'),new FMol('lidocaine'),new FMol('lidocaine'),new FMol('lidocaine'),new FMol('psilocybin'),new FMol('psilocybin')];
   mols[0].x=W*.12;mols[0].y=H*.25; mols[1].x=W*.65;mols[1].y=H*.6;
   mols[2].x=W*.4;mols[2].y=H*.85; mols[3].x=W*.85;mols[3].y=H*.15;
   mols[4].x=W*.25;mols[4].y=H*.55; mols[5].x=W*.78;mols[5].y=H*.4;
-  var dparts=[]; for(var i=0;i<40;i++)dparts.push(new DPart());
+  mols[6].x=W*.55;mols[6].y=H*.3; mols[7].x=W*.18;mols[7].y=H*.75;
+  var dparts=[]; for(var i=0;i<18;i++)dparts.push(new DPart());
   var dusts=[]; for(var i=0;i<100;i++)dusts.push(new Dust());
-  var flines=[]; for(var i=0;i<10;i++)flines.push(new FLine());
+  var flines=[]; for(var i=0;i<5;i++)flines.push(new FLine());
 
   /* Connections */
   function drawConn(){
@@ -1654,10 +1688,6 @@ setTimeout(() => {
       dx=mols[i].x-mols[j].x;dy=mols[i].y-mols[j].y;d=Math.sqrt(dx*dx+dy*dy);
       if(d<250){ctx.beginPath();ctx.moveTo(mols[i].x,mols[i].y);ctx.lineTo(mols[j].x,mols[j].y);
         ctx.strokeStyle='rgba(46,232,200,'+(0.03*(1-d/250))+')';ctx.lineWidth=.5;ctx.setLineDash([4,6]);ctx.stroke();ctx.setLineDash([]);}}
-    for(i=0;i<dparts.length;i++)for(j=i+1;j<dparts.length;j++){
-      dx=dparts[i].x-dparts[j].x;dy=dparts[i].y-dparts[j].y;d=Math.sqrt(dx*dx+dy*dy);
-      if(d<130){ctx.beginPath();ctx.moveTo(dparts[i].x,dparts[i].y);ctx.lineTo(dparts[j].x,dparts[j].y);
-        ctx.strokeStyle='rgba(46,232,200,'+(0.04*(1-d/130))+')';ctx.lineWidth=.4;ctx.stroke();}}
   }
 
   /* Mouse glow */
