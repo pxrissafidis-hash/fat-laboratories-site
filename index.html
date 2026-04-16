@@ -3,26 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>F.A.T. Laboratories — Finite Absorption Time Pharmacokinetics</title>
-<meta name="description" content="F.A.T. Laboratories is a spinoff of NKUA pioneering the Finite Absorption Time (F.A.T.) concept — a paradigm shift in oral drug absorption modeling, generics development, and population pharmacokinetics." />
-<meta name="keywords" content="Finite Absorption Time, pharmacokinetics, PBFTPK, FTPK software, bioavailability, bioequivalence, generics, population PK, FractaLPK, NONMEM, drug development, NKUA" />
-<meta name="author" content="F.A.T. Laboratories, NKUA" />
-<meta name="robots" content="index, follow" />
-<link rel="canonical" href="https://www.fatlabs.io/" />
-
-<!-- Open Graph (LinkedIn, email previews) -->
-<meta property="og:title" content="F.A.T. Laboratories — Finite Absorption Time Pharmacokinetics" />
-<meta property="og:description" content="Pioneering the Finite Absorption Time concept for drug development, generics, and population PK analysis. A spinoff of the National and Kapodistrian University of Athens." />
-<meta property="og:url" content="https://www.fatlabs.io/" />
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="F.A.T. Laboratories" />
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="F.A.T. Laboratories — Finite Absorption Time" />
-<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABKElEQVR4nO3aTQ6DIBAF4KHpIThF19x/5ZpTeAu7IiEWK+Dg69D3LfuTvHkotUYRIiIiIiKiP+TQAUZ6rcv27f3og5uygLPBc1MVsB88+uBKr+eeo0PdJR8yDV5jiiOgdvjS56Y5AmqUynkggmhq2fBKzBeQazn3E9MFXF19EeMFaGAB6ABoZgs4uuprZbYALSwAHQCNBaAD9NC4AEpMFrDX+wsgMkkBV7AAdAA0FoAOgGauAK3/AIm5ArSxAHQANBaADtBCewMUMVbACCwAHQDNbAEa57+IoQI0b4LkfqKA1uG0Vl8E/HzA0eD7AXsffqgx/AhI4V/rsuWD1K76yOFFbnxAIvrgeobOv6+fCrgH1A4UfXCjhr/N2cqn02PUTk9ERERE9OkNroRoXTSdcywAAAAASUVORK5CYII=" />
-<meta name="twitter:description" content="Pioneering the Finite Absorption Time concept for drug development and population PK analysis." />
-<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABKElEQVR4nO3aTQ6DIBAF4KHpIThF19x/5ZpTeAu7IiEWK+Dg69D3LfuTvHkotUYRIiIiIiKiP+TQAUZ6rcv27f3og5uygLPBc1MVsB88+uBKr+eeo0PdJR8yDV5jiiOgdvjS56Y5AmqUynkggmhq2fBKzBeQazn3E9MFXF19EeMFaGAB6ABoZgs4uuprZbYALSwAHQCNBaAD9NC4AEpMFrDX+wsgMkkBV7AAdAA0FoAOgGauAK3/AIm5ArSxAHQANBaADtBCewMUMVbACCwAHQDNbAEa57+IoQI0b4LkfqKA1uG0Vl8E/HzA0eD7AXsffqgx/AhI4V/rsuWD1K76yOFFbnxAIvrgeobOv6+fCrgH1A4UfXCjhr/N2cqn02PUTk9ERERE9OkNroRoXTSdcywAAAAASUVORK5CYII=" />
+<title>F.A.T. Laboratories — Finite Absorption Time</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet" />
@@ -35,6 +16,9 @@
   --bg:       #05080f;
   --bg2:      #090d18;
   --bg3:      #0d1220;
+  --bg-t:     rgba(5, 8, 15, 0.82);
+  --bg2-t:    rgba(9, 13, 24, 0.85);
+  --bg3-t:    rgba(13, 18, 32, 0.85);
   --surface:  #111827;
   --border:   rgba(255,255,255,0.07);
   --accent:   #2ee8c8;
@@ -155,7 +139,8 @@ nav.scrolled { padding: .4rem 4rem; }
 }
 
 .hero-canvas {
-  position: absolute; inset: 0; z-index: 1;
+  position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+  z-index: 0; pointer-events: none;
 }
 
 .hero-content {
@@ -281,7 +266,7 @@ nav.scrolled { padding: .4rem 4rem; }
 /* ── CONCEPT SECTION ─────────────────────────────────────────── */
 #concept {
   padding: 7rem 4rem;
-  background: var(--bg2);
+  background: var(--bg2-t);
   position: relative;
 }
 #concept::before {
@@ -356,7 +341,8 @@ nav.scrolled { padding: .4rem 4rem; }
 /* ── SERVICES ────────────────────────────────────────────────── */
 #services {
   padding: 7rem 4rem;
-  background: var(--bg);
+  background: var(--bg-t);
+  position: relative;
 }
 
 .services-grid {
@@ -423,7 +409,8 @@ nav.scrolled { padding: .4rem 4rem; }
 /* ── TEAM ────────────────────────────────────────────────────── */
 #team {
   padding: 7rem 4rem;
-  background: var(--bg2);
+  background: var(--bg2-t);
+  position: relative;
 }
 
 .team-grid {
@@ -473,7 +460,8 @@ nav.scrolled { padding: .4rem 4rem; }
 /* ── PUBLICATIONS ────────────────────────────────────────────── */
 #publications {
   padding: 7rem 4rem;
-  background: var(--bg);
+  background: var(--bg-t);
+  position: relative;
 }
 
 .pub-list {
@@ -521,7 +509,8 @@ nav.scrolled { padding: .4rem 4rem; }
 /* ── PARTNERS ────────────────────────────────────────────────── */
 #partners {
   padding: 7rem 4rem;
-  background: var(--bg2);
+  background: var(--bg2-t);
+  position: relative;
 }
 
 .partners-wrap {
@@ -590,7 +579,8 @@ nav.scrolled { padding: .4rem 4rem; }
 /* ── CONTACT ─────────────────────────────────────────────────── */
 #contact {
   padding: 7rem 4rem;
-  background: var(--bg);
+  background: var(--bg-t);
+  position: relative;
 }
 
 .contact-wrap {
@@ -676,9 +666,10 @@ nav.scrolled { padding: .4rem 4rem; }
 
 /* ── FOOTER ──────────────────────────────────────────────────── */
 footer {
-  background: var(--bg2);
+  background: var(--bg2-t);
   border-top: 1px solid var(--border);
   padding: 3rem 4rem;
+  position: relative;
 }
 .footer-inner {
   max-width: var(--max); margin: 0 auto;
@@ -1373,7 +1364,7 @@ section {
 </section>
 
 <!-- ── ANNOUNCEMENTS ────────────────────────────────────────────── -->
-<section id="announcements" style="background:var(--bg3); padding:5rem 4rem; border-top:1px solid var(--border);">
+<section id="announcements" style="background:var(--bg3-t); padding:5rem 4rem; border-top:1px solid var(--border); position:relative;">
   <div style="max-width:var(--max); margin:0 auto;">
     <div style="text-align:center; margin-bottom:3rem;">
       <span style="font-family:var(--font-mono); font-size:.7rem; letter-spacing:.25em; color:var(--accent); text-transform:uppercase;">Announcements</span>
@@ -1403,7 +1394,7 @@ section {
 </section>
 
 <!-- ── STAY INFORMED ───────────────────────────────────────────── -->
-<section style="background:var(--bg2); padding:4rem; border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+<section style="background:var(--bg2-t); padding:4rem; border-top:1px solid var(--border); border-bottom:1px solid var(--border); position:relative;">
   <div style="max-width:600px; margin:0 auto; text-align:center;">
     <span style="font-family:var(--font-mono); font-size:.7rem; letter-spacing:.25em; color:var(--accent); text-transform:uppercase;">Stay Informed</span>
     <h2 style="font-family:var(--font-display); font-size:clamp(1.6rem,3vw,2.4rem); font-weight:300; color:var(--white); margin:.8rem 0 .6rem; line-height:1.2;">Be the first to know about<br><strong>new publications & updates</strong></h2>
@@ -1506,66 +1497,212 @@ setTimeout(() => {
   });
 }, 300);
 
-/* ─ Hero canvas particles ─ */
+/* ─ Hero canvas — molecular animation ─ */
 (function() {
   const canvas = document.getElementById('heroCanvas');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
-  let W, H, particles = [];
+  let W, H, mouse = { x: -1000, y: -1000 }, time = 0;
 
-  function resize() {
-    W = canvas.width = canvas.offsetWidth;
-    H = canvas.height = canvas.offsetHeight;
-  }
+  function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
   resize();
   window.addEventListener('resize', resize);
+  window.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
+  window.addEventListener('touchmove', e => { mouse.x = e.touches[0].clientX; mouse.y = e.touches[0].clientY; }, {passive:true});
 
-  for (let i = 0; i < 55; i++) {
-    particles.push({
-      x: Math.random() * 1400,
-      y: Math.random() * 900,
-      r: Math.random() * 1.5 + 0.3,
-      vx: (Math.random() - 0.5) * 0.25,
-      vy: (Math.random() - 0.5) * 0.25,
-      a: Math.random() * 0.5 + 0.1
-    });
-  }
-
-  function draw() {
-    ctx.clearRect(0, 0, W, H);
-    particles.forEach(p => {
-      p.x += p.vx; p.y += p.vy;
-      if (p.x < 0) p.x = W; if (p.x > W) p.x = 0;
-      if (p.y < 0) p.y = H; if (p.y > H) p.y = 0;
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(46,232,200,${p.a})`;
-      ctx.fill();
-    });
-    // Lines between close particles
-    for (let i = 0; i < particles.length; i++) {
-      for (let j = i + 1; j < particles.length; j++) {
-        const dx = particles[i].x - particles[j].x;
-        const dy = particles[i].y - particles[j].y;
-        const d = Math.sqrt(dx*dx + dy*dy);
-        if (d < 120) {
-          ctx.beginPath();
-          ctx.moveTo(particles[i].x, particles[i].y);
-          ctx.lineTo(particles[j].x, particles[j].y);
-          ctx.strokeStyle = `rgba(46,232,200,${0.06 * (1 - d/120)})`;
-          ctx.lineWidth = .5;
-          ctx.stroke();
-        }
-      }
+  /* Molecule definitions */
+  const MOL = {
+    ibuprofen: {
+      atoms: [{x:0,y:0},{x:1.2,y:.7},{x:1.2,y:2.1},{x:0,y:2.8},{x:-1.2,y:2.1},{x:-1.2,y:.7},{x:0,y:-1.3},{x:0,y:-2.6},{x:-1.2,y:-3.3},{x:1.2,y:-3.3},{x:0,y:4.1},{x:-1.2,y:4.8},{x:1,y:5.2},{x:.5,y:6.4},{x:2.2,y:5}],
+      bonds: [[0,1],[1,2],[2,3],[3,4],[4,5],[5,0],[0,6],[6,7],[7,8],[7,9],[3,10],[10,11],[10,12],[12,13],[12,14]],
+      dbl: [[12,13],[0,5],[2,3]]
+    },
+    lidocaine: {
+      atoms: [{x:0,y:0},{x:1.2,y:.7},{x:1.2,y:2.1},{x:0,y:2.8},{x:-1.2,y:2.1},{x:-1.2,y:.7},{x:2.4,y:.1},{x:-2.4,y:.1},{x:0,y:4.1},{x:0,y:5.4},{x:-1.2,y:6.1},{x:1.2,y:6.1},{x:1.2,y:7.4},{x:0,y:8.2},{x:2.4,y:8.2},{x:-1,y:9},{x:3.4,y:9}],
+      bonds: [[0,1],[1,2],[2,3],[3,4],[4,5],[5,0],[1,6],[5,7],[3,8],[8,9],[9,10],[9,11],[11,12],[12,13],[12,14],[13,15],[14,16]],
+      dbl: [[9,10],[0,1],[3,4]]
     }
-    requestAnimationFrame(draw);
+  };
+
+  /* Floating structured molecule */
+  class FMol {
+    constructor(type) {
+      this.d = MOL[type]; this.x = Math.random()*W; this.y = Math.random()*H;
+      this.vx = .15+Math.random()*.5; this.vy = (Math.random()-.5)*.25;
+      this.sc = 10+Math.random()*9; this.rot = Math.random()*Math.PI*2;
+      this.rs = (Math.random()-.5)*.003; this.op = .25+Math.random()*.4;
+      this.ph = Math.random()*Math.PI*2; this.ps = .006+Math.random()*.012;
+      this.dp = .3+Math.random()*.7;
+    }
+    update() {
+      var dx=mouse.x-this.x, dy=mouse.y-this.y, di=Math.sqrt(dx*dx+dy*dy);
+      if(di<280){var f=(280-di)/280*.01*this.dp;this.vx+=dx/di*f;this.vy+=dy/di*f;}
+      this.vx+=(.35*this.dp-this.vx)*.002; this.vy+=Math.sin(time*.0008+this.ph)*.002;
+      this.vy*=.992; this.vx*=.998; this.x+=this.vx; this.y+=this.vy;
+      this.rot+=this.rs; this.ph+=this.ps;
+      if(this.x>W+150){this.x=-130;this.y=Math.random()*H;} if(this.x<-170)this.x=W+120;
+      if(this.y>H+120)this.y=-100; if(this.y<-120)this.y=H+100;
+    }
+    draw() {
+      var gw=.7+.3*Math.sin(this.ph), al=this.op*gw, s=this.sc, a=this.d.atoms, b=this.d.bonds, db=this.d.dbl;
+      ctx.save(); ctx.translate(this.x,this.y); ctx.rotate(this.rot);
+      b.forEach(function(bd){
+        var ax=a[bd[0]].x*s,ay=a[bd[0]].y*s,bx=a[bd[1]].x*s,by=a[bd[1]].y*s;
+        var isD=db.some(function(d){return(d[0]===bd[0]&&d[1]===bd[1])||(d[0]===bd[1]&&d[1]===bd[0]);});
+        ctx.strokeStyle='rgba(46,232,200,'+(al*.5)+')'; ctx.lineWidth=isD?1.6:1;
+        ctx.beginPath();ctx.moveTo(ax,ay);ctx.lineTo(bx,by);ctx.stroke();
+        if(isD){var ddx=bx-ax,ddy=by-ay,ln=Math.sqrt(ddx*ddx+ddy*ddy),nx=-ddy/ln*2.8,ny=ddx/ln*2.8;
+          ctx.lineWidth=.7;ctx.strokeStyle='rgba(46,232,200,'+(al*.3)+')';
+          ctx.beginPath();ctx.moveTo(ax+nx,ay+ny);ctx.lineTo(bx+nx,by+ny);ctx.stroke();}
+      });
+      a.forEach(function(at){
+        var ax=at.x*s,ay=at.y*s;
+        var g=ctx.createRadialGradient(ax,ay,0,ax,ay,10);
+        g.addColorStop(0,'rgba(46,232,200,'+(al*.25)+')');g.addColorStop(1,'rgba(46,232,200,0)');
+        ctx.fillStyle=g;ctx.beginPath();ctx.arc(ax,ay,10,0,Math.PI*2);ctx.fill();
+        ctx.beginPath();ctx.arc(ax,ay,2,0,Math.PI*2);ctx.fillStyle='rgba(46,232,200,'+(al*.85)+')';ctx.fill();
+      });
+      var cy=a.reduce(function(s,at){return s+at.y;},0)/a.length*s;
+      var mg=ctx.createRadialGradient(0,cy,0,0,cy,s*4);
+      mg.addColorStop(0,'rgba(46,232,200,'+(al*.06)+')');mg.addColorStop(1,'rgba(46,232,200,0)');
+      ctx.fillStyle=mg;ctx.beginPath();ctx.arc(0,cy,s*4,0,Math.PI*2);ctx.fill();
+      ctx.restore();
+    }
   }
-  draw();
+
+  /* Drug particles — star-like glowing orbs */
+  class DPart {
+    constructor() {
+      this.x=Math.random()*W; this.y=Math.random()*H;
+      this.r=3+Math.random()*6; this.vx=(Math.random()-.5)*.4; this.vy=(Math.random()-.5)*.4;
+      this.bvx=this.vx; this.bvy=this.vy;
+      this.op=.25+Math.random()*.5; this.ph=Math.random()*Math.PI*2;
+      this.ps=.01+Math.random()*.025; this.dp=.2+Math.random()*.8;
+      this.st=Math.floor(Math.random()*3); this.wp=Math.random()*Math.PI*2;
+      this.wa=.3+Math.random()*.6; this.wf=.003+Math.random()*.005;
+      this.trail=[];
+    }
+    update() {
+      var dx=mouse.x-this.x,dy=mouse.y-this.y,di=Math.sqrt(dx*dx+dy*dy);
+      if(di<200){var f=(200-di)/200*.008*this.dp;this.vx+=dx/di*f;this.vy+=dy/di*f;}
+      this.vx+=Math.sin(time*this.wf+this.wp)*.005*this.wa;
+      this.vy+=Math.cos(time*this.wf*.7+this.wp)*.005*this.wa;
+      this.vx+=(this.bvx-this.vx)*.001; this.vy+=(this.bvy-this.vy)*.001;
+      this.vx*=.997; this.vy*=.997; this.x+=this.vx; this.y+=this.vy; this.ph+=this.ps;
+      this.trail.push({x:this.x,y:this.y}); if(this.trail.length>12)this.trail.shift();
+      if(this.x>W+30)this.x=-20; if(this.x<-30)this.x=W+20;
+      if(this.y>H+30)this.y=-20; if(this.y<-30)this.y=H+20;
+    }
+    draw() {
+      var gw=.6+.4*Math.sin(this.ph), al=this.op*gw;
+      if(this.trail.length>2){ctx.beginPath();ctx.moveTo(this.trail[0].x,this.trail[0].y);
+        for(var i=1;i<this.trail.length;i++)ctx.lineTo(this.trail[i].x,this.trail[i].y);
+        ctx.strokeStyle='rgba(46,232,200,'+(al*.08)+')';ctx.lineWidth=this.r*.6;ctx.lineCap='round';ctx.stroke();}
+      var g1=ctx.createRadialGradient(this.x,this.y,0,this.x,this.y,this.r*5);
+      g1.addColorStop(0,'rgba(46,232,200,'+(al*.12)+')');g1.addColorStop(.4,'rgba(46,232,200,'+(al*.04)+')');
+      g1.addColorStop(1,'rgba(46,232,200,0)');ctx.fillStyle=g1;
+      ctx.beginPath();ctx.arc(this.x,this.y,this.r*5,0,Math.PI*2);ctx.fill();
+      ctx.strokeStyle='rgba(46,232,200,'+(al*.2)+')';ctx.lineWidth=.5;
+      var sl=this.r*3*gw;
+      for(var i=0;i<4;i++){var an=Math.PI/4*2*i+time*.001;
+        ctx.beginPath();ctx.moveTo(this.x,this.y);
+        ctx.lineTo(this.x+Math.cos(an)*sl,this.y+Math.sin(an)*sl);ctx.stroke();}
+      if(this.st===0){ctx.beginPath();ctx.arc(this.x,this.y,this.r*1.5,0,Math.PI*2);
+        ctx.strokeStyle='rgba(46,232,200,'+(al*.35)+')';ctx.lineWidth=.8;ctx.stroke();}
+      else if(this.st===1){ctx.strokeStyle='rgba(46,232,200,'+(al*.4)+')';ctx.lineWidth=1;
+        ctx.beginPath();ctx.moveTo(this.x-this.r,this.y);ctx.lineTo(this.x+this.r,this.y);ctx.stroke();
+        ctx.beginPath();ctx.moveTo(this.x,this.y-this.r);ctx.lineTo(this.x,this.y+this.r);ctx.stroke();}
+      var g2=ctx.createRadialGradient(this.x,this.y,0,this.x,this.y,this.r);
+      g2.addColorStop(0,'rgba(200,255,245,'+(al*.9)+')');g2.addColorStop(.3,'rgba(46,232,200,'+(al*.6)+')');
+      g2.addColorStop(1,'rgba(46,232,200,0)');ctx.fillStyle=g2;
+      ctx.beginPath();ctx.arc(this.x,this.y,this.r,0,Math.PI*2);ctx.fill();
+    }
+  }
+
+  /* Tiny dust */
+  class Dust {
+    constructor(){this.x=Math.random()*2e3;this.y=Math.random()*1200;this.r=.4+Math.random()*1.5;
+      this.vx=.05+Math.random()*.25;this.vy=(Math.random()-.5)*.1;this.op=.06+Math.random()*.2;this.dp=.1+Math.random()*.9;}
+    update(){this.x+=this.vx*this.dp;this.y+=this.vy+Math.sin(time*.001+this.x*.005)*.06;
+      if(this.x>W+10){this.x=-5;this.y=Math.random()*H;}if(this.y>H+10)this.y=-5;if(this.y<-10)this.y=H+5;}
+    draw(){var a=this.op*(.5+.5*Math.sin(time*.002+this.x*.3));ctx.beginPath();ctx.arc(this.x,this.y,this.r,0,Math.PI*2);
+      ctx.fillStyle='rgba(46,232,200,'+a+')';ctx.fill();}
+  }
+
+  /* Flow lines */
+  class FLine {
+    constructor(){this.by=Math.random()*H;this.am=25+Math.random()*60;this.fr=.0012+Math.random()*.0025;
+      this.sp=.2+Math.random()*.35;this.of=Math.random()*1e3;this.op=.015+Math.random()*.03;}
+    draw(){ctx.beginPath();ctx.strokeStyle='rgba(46,232,200,'+this.op+')';ctx.lineWidth=.8;
+      for(var x=0;x<=W;x+=4){var y=this.by+Math.sin((x+time*this.sp+this.of)*this.fr)*this.am+Math.sin((x+time*.12)*.003)*12;
+        if(x===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);}ctx.stroke();}
+  }
+
+  /* Init */
+  var mols=[new FMol('ibuprofen'),new FMol('ibuprofen'),new FMol('ibuprofen'),new FMol('lidocaine'),new FMol('lidocaine'),new FMol('lidocaine')];
+  mols[0].x=W*.12;mols[0].y=H*.25; mols[1].x=W*.65;mols[1].y=H*.6;
+  mols[2].x=W*.4;mols[2].y=H*.85; mols[3].x=W*.85;mols[3].y=H*.15;
+  mols[4].x=W*.25;mols[4].y=H*.55; mols[5].x=W*.78;mols[5].y=H*.4;
+  var dparts=[]; for(var i=0;i<40;i++)dparts.push(new DPart());
+  var dusts=[]; for(var i=0;i<100;i++)dusts.push(new Dust());
+  var flines=[]; for(var i=0;i<10;i++)flines.push(new FLine());
+
+  /* Connections */
+  function drawConn(){
+    var i,j,dx,dy,d;
+    for(i=0;i<mols.length;i++)for(j=i+1;j<mols.length;j++){
+      dx=mols[i].x-mols[j].x;dy=mols[i].y-mols[j].y;d=Math.sqrt(dx*dx+dy*dy);
+      if(d<250){ctx.beginPath();ctx.moveTo(mols[i].x,mols[i].y);ctx.lineTo(mols[j].x,mols[j].y);
+        ctx.strokeStyle='rgba(46,232,200,'+(0.03*(1-d/250))+')';ctx.lineWidth=.5;ctx.setLineDash([4,6]);ctx.stroke();ctx.setLineDash([]);}}
+    for(i=0;i<dparts.length;i++)for(j=i+1;j<dparts.length;j++){
+      dx=dparts[i].x-dparts[j].x;dy=dparts[i].y-dparts[j].y;d=Math.sqrt(dx*dx+dy*dy);
+      if(d<130){ctx.beginPath();ctx.moveTo(dparts[i].x,dparts[i].y);ctx.lineTo(dparts[j].x,dparts[j].y);
+        ctx.strokeStyle='rgba(46,232,200,'+(0.04*(1-d/130))+')';ctx.lineWidth=.4;ctx.stroke();}}
+  }
+
+  /* Mouse glow */
+  function drawGlow(){
+    if(mouse.x<-500)return;
+    var g=ctx.createRadialGradient(mouse.x,mouse.y,0,mouse.x,mouse.y,250);
+    g.addColorStop(0,'rgba(46,232,200,0.05)');g.addColorStop(1,'rgba(46,232,200,0)');
+    ctx.fillStyle=g;ctx.beginPath();ctx.arc(mouse.x,mouse.y,250,0,Math.PI*2);ctx.fill();
+  }
+
+  /* Loop */
+  function animate(){
+    time++;ctx.clearRect(0,0,W,H);
+    flines.forEach(function(f){f.draw();});
+    dusts.forEach(function(d){d.update();d.draw();});
+    drawConn();
+    dparts.forEach(function(p){p.update();p.draw();});
+    mols.forEach(function(m){m.update();m.draw();});
+    drawGlow();
+    requestAnimationFrame(animate);
+  }
+  animate();
 })();
 
 /* ─ Hero SVG curve animation ─ */
 (function() {
   const conv = document.getElementById('old-curve');
-  if (!conv) return;
-  const len = conv.getTotalLength();
-  conv.style.strokeDasharray = l
+  if (conv) {
+    const len = conv.getTotalLength();
+    conv.style.strokeDasharray = len;
+    conv.style.strokeDashoffset = len;
+    conv.style.transition = 'stroke-dashoffset 2s cubic-bezier(.4,0,.2,1) .3s';
+    setTimeout(function() { conv.style.strokeDashoffset = '0'; }, 100);
+  }
+  const fat = document.getElementById('fat-curve');
+  if (fat) {
+    const len2 = fat.getTotalLength();
+    fat.style.strokeDasharray = '8 5';
+    fat.style.strokeDashoffset = len2;
+    fat.style.transition = 'stroke-dashoffset 2.2s cubic-bezier(.4,0,.2,1) .5s';
+    setTimeout(function() { fat.style.strokeDashoffset = '0'; }, 100);
+  }
+})();
+
+}); /* end DOMContentLoaded */
+</script>
+</body>
+</html>
