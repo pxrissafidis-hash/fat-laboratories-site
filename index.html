@@ -196,6 +196,24 @@ nav.scrolled { padding: .4rem 4rem; }
   font-style: italic; color: var(--accent);
   display: block;
 }
+.hero-rotate { display:block; position:relative; min-height:3.6em; }
+.hero-rotate-line {
+  display:block; position:absolute; left:0; right:0; top:0;
+  opacity:0; animation:heroRotate 15s infinite;
+}
+.hero-rotate-line:nth-child(1){ animation-delay:0s; }
+.hero-rotate-line:nth-child(2){ animation-delay:5s; }
+.hero-rotate-line:nth-child(3){ animation-delay:10s; }
+@keyframes heroRotate {
+  0%      { opacity:0; transform:translateY(8px); }
+  3%,30%  { opacity:1; transform:translateY(0); }
+  33%     { opacity:0; transform:translateY(-8px); }
+  100%    { opacity:0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-rotate { min-height:0; }
+  .hero-rotate-line { position:static; opacity:1; animation:none; transform:none; margin-bottom:.3em; }
+}
 
 .hero-desc {
   color: var(--muted);
@@ -811,7 +829,11 @@ section {
       <div class="hero-label">Spinoff — NKUA · Est. 2025</div>
       <h1 class="hero-title">
         Redefining<br>Pharmacokinetics<br>
-        <em>Tailored for<br>absorption.</em>
+        <em class="hero-rotate">
+          <span class="hero-rotate-line">Revolutionizing drug and generics development.</span>
+          <span class="hero-rotate-line">Estimating a lower boundary of absolute bioavailability from oral data exclusively.</span>
+          <span class="hero-rotate-line">Constructing an in vitro system for predicting oral drug absorption.</span>
+        </em>
       </h1>
       <p class="hero-desc">
         <strong style="color:rgba(255,255,255,0.7);">F.A.T. Laboratories</strong> pioneers the <strong>Finite Absorption Time</strong> concept —
@@ -897,10 +919,10 @@ section {
 <section id="concept">
   <div class="section-header fade-in">
     <span class="section-tag">The F.A.T. Paradigm</span>
-    <h2 class="section-title">Two Paradigm Shifts in<br><strong>Pharmacokinetic Theory</strong></h2>
+    <h2 class="section-title">A Paradigm Shift in<br><strong>Pharmacokinetic Theory</strong></h2>
     <p class="section-sub">
       • For 70 years, drug absorption was modeled as an infinite process — a foundational assumption that has since been shown to be physically untenable.<br>
-      • No existing population PK software was capable of analysing both anomalous and classical kinetics data simultaneously — until now.
+      • The estimates for the absorption rate constant in pharmacokinetics and pharmacometrics are wrong: A new era based on the finite absorption time concept rises. <em>31st Population Approach Group in Europe (PAGE) meeting, La Coruña, Spain 27–30 June <a href="https://www.page-meeting.org/Abstracts/the-estimates-for-the-absorption-rate-constant-in-pharmacokinetics-and-pharmacometrics-are-wrong-a-new-era-based-on-the-finite-absorption-time-concept-rises/" target="_blank" style="color:var(--accent);text-decoration:none;">2023</a>.</em>
     </p>
   </div>
 
@@ -933,31 +955,6 @@ section {
         ✓ Physiologically accurate
       </div>
     </div>
-    <div class="concept-card">
-      <span class="concept-card-tag problem">The Problem in Topology</span>
-      <h3>Classical kinetics does not work in disordered media</h3>
-      <p>
-        Classical kinetics (first- or zero-order) can only be applied in well-mixed, homogeneous spaces where Fick's diffusion laws are valid. In media with topological constraints, Fick's laws of diffusion are not valid.
-        (<a href="https://www.amazon.com/dp/3319275968" target="_blank" style="color:var(--accent);text-decoration:none;">Modeling in Biopharmaceutics, Pharmacokinetics and Pharmacodynamics</a> — Interdisciplinary Applied Mathematics, Vol. 30)
-      </p>
-      <div class="concept-formula">
-        Homogeneous space: Fick's laws valid<br>
-        ❌ Disordered media: classical kinetics fails
-      </div>
-    </div>
-    <div class="concept-card">
-      <span class="concept-card-tag solution">The Solution</span>
-      <h3>Fractal Reaction Kinetics</h3>
-      <p>
-        In under-stirred media where reactions and processes take place in a low-dimensional space, the rate "constant" is time-dependent at all times. This is expressed by the rate coefficient <em>k</em> which governs the so-called fractal reaction kinetics:
-        <strong>k = k₁ · t<sup>h</sup></strong>, where k₁ is a constant and the exponent <em>h</em> ≠ 0.
-        (<a href="https://doi.org/10.1126/science.241.4873.1620" target="_blank" style="color:var(--accent);text-decoration:none;">Fractal Reaction Kinetics — Science</a>)
-      </p>
-      <div class="concept-formula">
-        k = k₁ · tʰ, h ≠ 0<br>
-        ✓ Valid in disordered media
-      </div>
-    </div>
   </div>
 </section>
 
@@ -966,7 +963,7 @@ section {
   <div class="section-header fade-in">
     <span class="section-tag">What We Offer</span>
     <h2 class="section-title">Model-informed services<br><strong>across the drug lifecycle</strong></h2>
-    <p class="section-sub">From early-phase studies to regulatory submissions, we apply the F.A.T. framework at every stage. In all stages of drug &amp; generics development we analyze the data utilizing the <a href="https://enaloscloud.novamechanics.com/EnalosWebApps/model_fittingsV2/" target="_blank" style="color:var(--accent); text-decoration:none;">Finite Time Pharmacokinetics (FTPK) Software</a>. Population PK studies are analyzed with NONMEM as well as using the FractaLPK software. The estimate of the exponent <em>h</em> indicates whether anomalous kinetics is present: if <em>h</em> ≠ 0, anomalous kinetics is observed, whereas if <em>h</em> = 0, the system follows normal (classical) kinetics.</p>
+    <p class="section-sub">From early-phase studies to regulatory submissions, we apply the F.A.T. framework at every stage. In all stages of drug &amp; generics development we analyze the data utilizing the <a href="https://enaloscloud.novamechanics.com/EnalosWebApps/model_fittingsV2/" target="_blank" style="color:var(--accent); text-decoration:none;">Finite Time Pharmacokinetics (FTPK) Software</a>. Population PK studies are analyzed with NONMEM using the F.A.T.-based models as structural models, which are embedded in the FTPK software.</p>
   </div>
 
   <!-- A. DRUGS -->
@@ -983,10 +980,13 @@ section {
         <a href="https://pubmed.ncbi.nlm.nih.gov/41740805/" target="_blank" style="color:var(--accent);text-decoration:none;">PBFTPK models — PubMed</a>).
         We perform an oral study with a small number of volunteers and analyze data with the FTPK Software,
         obtaining the detailed PK profile: number of drug input stages, their duration and input rates,
-        and elimination/disposition rate constants. Most importantly, we estimate — <strong style="color:#ffffff;font-weight:700;">uniquely from an oral study alone</strong> — a lower boundary of absolute bioavailability.
+        and elimination/disposition rate constants. Most importantly, we estimate — <strong style="color:#ffffff;font-weight:700;">uniquely from an oral study alone</strong> — a lower boundary of absolute bioavailability, L<sub>AB</sub>; for the simplest case, a one-compartment model with one input stage,
       </p>
-      <p style="margin-top:.8rem; color:var(--muted); font-size:.88rem; line-height:1.8;">
-        An estimate of absolute bioavailability can be obtained if drug and metabolite measurements in urine are included in the oral study. Thus, micro dosing (phase zero) studies are not needed.
+      <div class="concept-formula" style="margin:1rem 0; font-size:.9rem;">
+        L<sub>AB</sub> = 1 &minus; (1 &minus; e<sup>&minus;k<sub>el</sub>&thinsp;&tau;</sup>) &divide; (k<sub>el</sub>&thinsp;&tau;)
+      </div>
+      <p style="color:var(--muted); font-size:.88rem; line-height:1.8;">
+        where k<sub>el</sub> and &tau; are the estimates for the elimination rate constant and the duration of drug absorption, respectively, derived from the fitting of the PBFTPK model to the C,t data using the FTPK software.
       </p>
       <span class="service-tag">FTPK Software · Bioavailability</span>
     </div>
@@ -994,14 +994,13 @@ section {
       <div class="service-icon" style="background:rgba(46,232,200,.12);border-color:rgba(46,232,200,.3);color:#2ee8c8;"><svg width="22" height="22" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"><path d="M224,200H32l64-112V48H160V88Z"/><line x1="96" y1="48" x2="160" y2="48"/></svg></div>
       <h3>Phase I–III Clinical Studies</h3>
       <p>
-        We provide model-informed design and analysis of Phase I, II, and III clinical studies using the FTPK software platform. In addition, we conduct population pharmacokinetic (PopPK) analyses through two complementary approaches:
+        We provide model-informed design and analysis of Phase I, II, and III clinical studies using the FTPK software platform. In addition, we conduct population pharmacokinetic (PopPK) analyses using the PBFTPK models embedded in the FTPK software. The optimization work is facilitated since the L<sub>AB</sub> and F/V<sub>d</sub> estimates bracket the true volume of distribution:
       </p>
+      <div class="concept-formula" style="margin:1rem 0; font-size:.9rem;">
+        L<sub>AB</sub> &divide; (F/V<sub>d</sub>) &le; V<sub>d</sub> &le; 1 &divide; (F/V<sub>d</sub>)
+      </div>
       <p style="margin-top:.8rem; color:var(--muted); font-size:.88rem; line-height:1.8;">
-        1. Implementation of our Physiologically Based Pharmacokinetic (PBFTPK) models as structural models within NONMEM<br>
-        2. Use of the Population PK module in <a href="https://fractalpk-demo.onrender.com" target="_blank" style="color:var(--accent);text-decoration:none;">FractaLPK software</a>
-      </p>
-      <p style="margin-top:.8rem; color:var(--muted); font-size:.88rem; line-height:1.8;">
-        For each approach, we deliver two comprehensive reports, along with an integrated summary that highlights and explains any similarities or differences between the results.
+        Besides, population analysis free of the wrong estimates of the absorption rate constant is accomplished.
       </p>
       <span class="service-tag">Clinical · PK/PD</span>
     </div>
@@ -1033,10 +1032,11 @@ section {
         Prior to the study, innovator and generic products are examined in the spirit delineated in the
         "Development of Generics" section. Rigorous BE studies are performed to deliver accurate,
         FDA and EMA regulatory-compliant assessments. Apart from the classical BE report, we provide
-        an additional analysis based on F.A.T. model-dependent and model-independent methodologies
-        using <a href="https://doi.org/10.1007/s11095-024-03727-w" target="_blank" style="color:var(--accent);text-decoration:none;">meaningful parameters</a>
-        for the extent and rate of absorption for both formulations.
-        In addition, the lower boundary of absolute bioavailability will be provided for both formulations.
+        an additional analysis based on a F.A.T. model-dependent methodology using
+        <a href="https://doi.org/10.1007/s11095-024-03727-w" target="_blank" style="color:var(--accent);text-decoration:none;">meaningful parameters</a>,
+        (FD/V<sub>d</sub>) and (FD/&tau;V<sub>d</sub>), for the extent and rate of absorption for both formulations.
+        In addition, the lower boundary of absolute bioavailability L<sub>AB</sub> will be provided for both formulations.
+        Needless to say, we re-analyze failed BE studies using the FTPK software.
       </p>
       <span class="service-tag">Generics · Regulatory</span>
     </div>
@@ -1044,12 +1044,12 @@ section {
 
   <!-- Remaining services -->
   <div class="services-category-header fade-in" style="margin-top:2rem;">
-    <span class="services-category-label">C. Pharmacokinetics: FTPK Software — Population PK: NONMEM and Fractal PK Software</span>
+    <span class="services-category-label">C. Pharmacokinetics: FTPK Software — Population PK: NONMEM</span>
   </div>
   <div class="services-grid fade-in">
     <div class="service-card">
       <div class="service-icon" style="background:rgba(232,201,126,.12);border-color:rgba(232,201,126,.3);color:#e8c97e;"><svg width="22" height="22" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"><polyline points="32,192 96,128 144,160 224,72"/><polyline points="160,72 224,72 224,136"/></svg></div>
-      <h3>Pharmacokinetics: FTPK Software — Population PK: NONMEM and Fractal PK Software</h3>
+      <h3>Pharmacokinetics: FTPK Software — Population PK: NONMEM</h3>
       <p>We utilize FTPK software for the analysis of pharmacokinetic data. Six PBFTPK models are currently employed, comprising one- and two-compartment disposition models with one, two, or three input stages. In all cases, the number of input stages is determined, and parameter estimates — along with their associated uncertainties — are obtained for the duration and input rates of each stage, as well as for the elimination rate constant or disposition constants. Most importantly, an estimate of the concentration corresponding to the fraction of dose absorbed is derived, allowing the estimation of a lower bound of absolute bioavailability based solely on oral data, through comparison with the observed maximum concentration.</p>
       <p style="margin-top:.8rem; color:var(--muted); font-size:.88rem; line-height:1.8;">
         We conduct population pharmacokinetic (PK) analysis using NONMEM. Population analysis is also applied using <strong style="color:var(--text)">FractaLPK</strong>, a novel platform developed by Carlos A. Pérez Aparicio (F.A.T. Laboratories, Population Modeling Director). This platform integrates fractional calculus with population PK methodologies, enabling advanced characterisation of drug kinetics. FractaLPK is built around a proprietary high-precision computational engine for evaluating the Mittag-Leffler function (E<sub>α</sub>), which allows for the detection and quantification of anomalous (non-Fickian) drug behaviour directly from standard concentration–time data.
