@@ -4,6 +4,34 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>F.A.T. Laboratories — Finite Absorption Time</title>
+<meta name="description" content="F.A.T. Laboratories applies the Finite Absorption Time concept to drug and generics development: PBFTPK modelling with the FTPK software, bioequivalence studies, population PK with NONMEM, and a lower boundary of absolute bioavailability estimated from oral data alone." />
+<link rel="canonical" href="https://www.fatlabs.io/" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2210%22%20fill%3D%22%230E3038%22%2F%3E%3Ctext%20x%3D%2232%22%20y%3D%2248%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2246%22%20fill%3D%22%23F4F1EA%22%20text-anchor%3D%22middle%22%3E%26%238747%3B%3C%2Ftext%3E%3C%2Fsvg%3E" />
+<meta name="theme-color" content="#0E3038" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="F.A.T. Laboratories" />
+<meta property="og:title" content="F.A.T. Laboratories &#8212; Finite Absorption Time" />
+<meta property="og:description" content="F.A.T. Laboratories applies the Finite Absorption Time concept to drug and generics development: PBFTPK modelling with the FTPK software, bioequivalence studies, population PK with NONMEM, and a lower boundary of absolute bioavailability estimated from oral data alone." />
+<meta property="og:url" content="https://www.fatlabs.io/" />
+<meta property="og:locale" content="en_GB" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="F.A.T. Laboratories &#8212; Finite Absorption Time" />
+<meta name="twitter:description" content="F.A.T. Laboratories applies the Finite Absorption Time concept to drug and generics development: PBFTPK modelling with the FTPK software, bioequivalence studies, population PK with NONMEM, and a lower boundary of absolute bioavailability estimated from oral data alone." />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "F.A.T. Laboratories",
+  "legalName": "F.A.T. Laboratories I.K.E.",
+  "alternateName": "Finite Absorption Time Laboratories",
+  "url": "https://www.fatlabs.io/",
+  "foundingDate": "2025-10",
+  "description": "F.A.T. Laboratories applies the Finite Absorption Time concept to drug and generics development: PBFTPK modelling with the FTPK software, bioequivalence studies, population PK with NONMEM, and a lower boundary of absolute bioavailability estimated from oral data alone.",
+  "address": { "@type": "PostalAddress", "addressLocality": "Athens", "addressCountry": "GR" },
+  "parentOrganization": { "@type": "CollegeOrUniversity", "name": "National and Kapodistrian University of Athens" },
+  "knowsAbout": ["Pharmacokinetics","Finite Absorption Time","Bioequivalence","Population pharmacokinetics","Generic drug development"]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Libre+Franklin:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -381,6 +409,90 @@ nav.scrolled { padding: .4rem 4rem; }
   color: var(--accent); line-height: 1.6;
 }
 
+/* ── L_AB CALCULATOR ─────────────────────────────────────────── */
+#calculator { padding: 7rem 4rem; background: var(--bg-t); position: relative; }
+.calc-shell {
+  max-width: var(--max); margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1.25fr;
+  gap: 1.5rem; align-items: stretch;
+}
+.calc-controls {
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 2.2rem 2rem;
+  display: flex; flex-direction: column;
+}
+.calc-field { margin-bottom: 1.9rem; }
+.calc-field label {
+  display: flex; align-items: baseline; justify-content: space-between;
+  font-family: var(--font-mono); font-size: .72rem;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--muted);
+  margin-bottom: .7rem;
+}
+.calc-field label output {
+  font-size: 1rem; letter-spacing: 0; text-transform: none;
+  color: var(--accent); font-weight: 500;
+}
+.calc-field input[type="range"] {
+  -webkit-appearance: none; appearance: none;
+  width: 100%; height: 3px; border-radius: 2px;
+  background: var(--border); outline: none; cursor: pointer;
+}
+.calc-field input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance: none;
+  width: 22px; height: 22px; border-radius: 50%;
+  background: var(--accent); border: 3px solid var(--bg2);
+  box-shadow: 0 1px 4px rgba(24,36,42,.35); cursor: pointer;
+}
+.calc-field input[type="range"]::-moz-range-thumb {
+  width: 22px; height: 22px; border-radius: 50%;
+  background: var(--accent); border: 3px solid var(--bg2);
+  box-shadow: 0 1px 4px rgba(24,36,42,.35); cursor: pointer;
+}
+.calc-field input[type="range"]:focus-visible { outline: 2px solid var(--accent2); outline-offset: 4px; }
+.calc-readout {
+  margin-top: auto; padding-top: 1.6rem; border-top: 1px solid var(--border);
+}
+.calc-readout-label {
+  font-family: var(--font-mono); font-size: .68rem;
+  letter-spacing: .16em; text-transform: uppercase; color: var(--muted);
+}
+.calc-readout-value {
+  display: block; font-family: var(--font-display);
+  font-size: 4rem; font-weight: 600; line-height: 1.05;
+  color: var(--accent); margin: .35rem 0 .1rem;
+}
+.calc-readout-note { font-size: .82rem; line-height: 1.7; color: var(--muted); }
+.calc-formula {
+  margin-top: 1.4rem; padding: .9rem 1.1rem;
+  background: rgba(24,36,42,.045); border-radius: var(--radius);
+  font-family: var(--font-mono); font-size: .8rem;
+  color: var(--accent); line-height: 1.6;
+}
+.calc-plot {
+  border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 1.6rem 1.4rem 1rem; display: flex; flex-direction: column;
+}
+.calc-plot svg { display: block; width: 100%; height: auto; }
+.calc-plot-head {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap;
+}
+.calc-plot-title {
+  font-family: var(--font-mono); font-size: .7rem;
+  letter-spacing: .15em; text-transform: uppercase; color: var(--muted);
+}
+.calc-legend { display: flex; gap: 1.1rem; flex-wrap: wrap; }
+.calc-legend span {
+  display: inline-flex; align-items: center; gap: .4rem;
+  font-size: .72rem; color: var(--muted);
+}
+.calc-legend i { display: block; width: 14px; height: 2px; border-radius: 2px; }
+@media (max-width: 960px) {
+  #calculator { padding: 5rem 2rem; }
+  .calc-shell { grid-template-columns: 1fr; }
+  .calc-readout-value { font-size: 3.2rem; }
+}
+
 /* ── SERVICES ────────────────────────────────────────────────── */
 #services {
   padding: 7rem 4rem;
@@ -571,6 +683,15 @@ nav.scrolled { padding: .4rem 4rem; }
 .team-dept {
   font-size: .82rem; color: var(--muted); line-height: 1.7;
 }
+.team-link {
+  display: inline-flex; align-items: center; gap: .35rem;
+  margin-top: .9rem;
+  font-family: var(--font-mono); font-size: .66rem;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--accent2); text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+.team-link:hover { border-bottom-color: var(--accent2); }
 
 /* ── PUBLICATIONS ────────────────────────────────────────────── */
 #publications {
@@ -881,7 +1002,7 @@ section {
    The two PK figures are drawn entirely from theme variables, so redefining
    those variables on their containers re-themes them without touching a
    single line of SVG. */
-.hero-chart-wrap, .pk-figure-plot {
+.hero-chart-wrap, .pk-figure-plot, .calc-plot {
   --bg:      #0E3038;
   --bg2:     #123B47;
   --bg3:     #123B47;
@@ -986,11 +1107,11 @@ nav { background: rgba(14,48,56,.96); border-bottom: 1px solid rgba(255,255,255,
     <button class="nav-close" onclick="document.getElementById('nav-links').classList.remove('open');document.getElementById('burger').classList.remove('active');" style="position:absolute;top:1.5rem;right:2rem;background:none;border:none;color:var(--text);font-size:1.8rem;cursor:pointer;line-height:1;">&#x2715;</button>
     <li><a href="#concept" onclick="document.getElementById('nav-links').classList.remove('open');">Science</a></li>
     <li><a href="#services" onclick="document.getElementById('nav-links').classList.remove('open');">Services</a></li>
+    <li><a href="#pricing" onclick="document.getElementById('nav-links').classList.remove('open');">Pricing</a></li>
     <li><a href="#team" onclick="document.getElementById('nav-links').classList.remove('open');">Team</a></li>
     <li><a href="#publications" onclick="document.getElementById('nav-links').classList.remove('open');">Publications</a></li>
-    <li><a href="#pricing" onclick="document.getElementById('nav-links').classList.remove('open');">Pricing</a></li>
-    <li><a href="#announcements" onclick="document.getElementById('nav-links').classList.remove('open');">News</a></li>
     <li><a href="#partners" onclick="document.getElementById('nav-links').classList.remove('open');">Partners</a></li>
+    <li><a href="#announcements" onclick="document.getElementById('nav-links').classList.remove('open');">News</a></li>
     <li><a href="#contact" class="nav-cta" onclick="document.getElementById('nav-links').classList.remove('open');">Contact</a></li>
   </ul>
 
@@ -1217,6 +1338,74 @@ nav { background: rgba(14,48,56,.96); border-bottom: 1px solid rgba(255,255,255,
         F.A.T. model: absorption ∈ [0, τ]<br>
         ✓ Physiologically accurate
       </div>
+      <a href="#calculator" class="btn-secondary" style="margin-top:1.6rem;">Try it yourself</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── L_AB CALCULATOR ────────────────────────────────────────── -->
+<section id="calculator">
+  <div class="section-header fade-in">
+    <span class="section-tag">See it for yourself</span>
+    <h2 class="section-title">A lower bound on bioavailability,<br><strong>from oral data alone</strong></h2>
+    <p class="section-sub">
+      Move the two estimates that an oral study gives you &mdash; the elimination rate constant
+      k<sub>el</sub> and the absorption duration &tau; &mdash; and watch the lower boundary of absolute
+      bioavailability fall out. No intravenous arm. This is the simplest case: one compartment, one input stage.
+    </p>
+  </div>
+
+  <div class="calc-shell fade-in">
+    <div class="calc-controls">
+      <div class="calc-field">
+        <label for="calc-kel">Elimination rate constant k<sub>el</sub><output id="calc-kel-out" for="calc-kel">0.50 h&#8315;&#185;</output></label>
+        <input type="range" id="calc-kel" min="0.05" max="1.5" step="0.01" value="0.5" />
+      </div>
+      <div class="calc-field">
+        <label for="calc-tau">Absorption duration &tau;<output id="calc-tau-out" for="calc-tau">3.00 h</output></label>
+        <input type="range" id="calc-tau" min="0.25" max="8" step="0.05" value="3" />
+      </div>
+      <div class="calc-formula">
+        L<sub>AB</sub> = 1 &minus; (1 &minus; e<sup>&minus;k<sub>el</sub>&thinsp;&tau;</sup>) &divide; (k<sub>el</sub>&thinsp;&tau;)<br>
+        k<sub>el</sub>&thinsp;&tau; = <span id="calc-product">1.50</span>
+      </div>
+      <div class="calc-readout">
+        <span class="calc-readout-label">Lower boundary of absolute bioavailability</span>
+        <strong class="calc-readout-value" id="calc-lab" aria-live="polite">F &ge; 0.48</strong>
+        <p class="calc-readout-note">
+          The true bioavailability F lies between this value and 1. Every oral study you have already run
+          carries this number &mdash; it has simply never been extracted.
+        </p>
+      </div>
+    </div>
+
+    <div class="calc-plot">
+      <div class="calc-plot-head">
+        <span class="calc-plot-title">Plasma concentration vs. time</span>
+        <div class="calc-legend">
+          <span><i style="background:var(--accent)"></i>C(t)</span>
+          <span><i style="background:var(--gold)"></i>F&#8321;D/V<sub>d</sub></span>
+        </div>
+      </div>
+      <svg viewBox="0 0 640 330" role="img" aria-labelledby="calc-svg-title">
+        <title id="calc-svg-title">Concentration and time curve with the absorption phase ending at tau</title>
+        <line x1="60" y1="280" x2="620" y2="280" stroke="var(--muted)" stroke-width="1.3"></line>
+        <line x1="60" y1="24" x2="60" y2="280" stroke="var(--muted)" stroke-width="1.3"></line>
+        <line x1="60" y1="40" x2="620" y2="40" stroke="var(--gold)" stroke-width="1.2" stroke-dasharray="6 5" opacity=".85"></line>
+        <text x="618" y="34" fill="var(--gold)" font-family="var(--font-mono),monospace" font-size="11" text-anchor="end">F&#8321;D/V&#8340;</text>
+        <path id="calc-gap" d="M0,0" fill="var(--gold)" opacity=".13"></path>
+        <path id="calc-curve" d="M0,0" fill="none" stroke="var(--accent)" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"></path>
+        <line id="calc-taul" x1="0" y1="0" x2="0" y2="280" stroke="var(--gold)" stroke-width="1" stroke-dasharray="4 4" opacity=".6"></line>
+        <circle id="calc-peak" cx="0" cy="0" r="5" fill="var(--bg)" stroke="var(--accent)" stroke-width="2.4"></circle>
+        <text id="calc-taut" x="0" y="302" fill="var(--gold)" font-family="var(--font-mono),monospace" font-size="12" font-style="italic" text-anchor="middle">&#964;</text>
+        <text id="calc-gapt" x="0" y="0" fill="var(--gold)" font-family="var(--font-mono),monospace" font-size="12" text-anchor="start">L</text>
+        <text x="22" y="152" fill="var(--muted)" font-family="var(--font-mono),monospace" font-size="11" text-anchor="middle" transform="rotate(-90 22 152)">C</text>
+        <text x="610" y="304" fill="var(--muted)" font-family="var(--font-mono),monospace" font-size="11" text-anchor="middle">t</text>
+      </svg>
+      <p style="margin:.9rem 0 0; padding-top:.8rem; border-top:1px solid var(--border); font-size:.74rem; line-height:1.65; color:var(--muted);">
+        The shaded band is the gap between the concentration the fully absorbed dose would have produced and the
+        concentration actually reached at &tau;. That gap <em>is</em> the lower boundary.
+      </p>
     </div>
   </div>
 </section>
@@ -1432,7 +1621,7 @@ nav { background: rgba(14,48,56,.96); border-bottom: 1px solid rgba(255,255,255,
   <div class="services-grid fade-in">
     <div class="service-card">
       <div class="service-icon" style="background:rgba(156,95,32,.12);border-color:rgba(156,95,32,.3);color:#9C5F20;"><svg width="22" height="22" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"><polyline points="32,192 96,128 144,160 224,72"/><polyline points="160,72 224,72 224,136"/></svg></div>
-      <h3>Pharmacokinetics (Classical, F.A.T. Based, Population): FTPK Software — Population PK: NONMEM</h3>
+      <h3>Analysis with the FTPK software</h3>
       <p>We utilize FTPK software for the analysis of pharmacokinetic data. Six PBFTPK models are currently employed, comprising one- and two-compartment disposition models with one, two, or three input stages. In all cases, the number of input stages is determined, and parameter estimates — along with their associated uncertainties — are obtained for the duration and input rates of each stage, as well as for the elimination rate constant or disposition constants. Most importantly, an estimate of the concentration corresponding to the fraction of dose absorbed is derived, allowing the estimation of a lower bound of absolute bioavailability based solely on oral data, through comparison with the observed maximum concentration.</p>
       <p style="margin-top:.8rem; color:var(--muted); font-size:.88rem; line-height:1.8;">
         We conduct population pharmacokinetic (PK) analysis using NONMEM.
@@ -1557,6 +1746,7 @@ nav { background: rgba(14,48,56,.96); border-bottom: 1px solid rgba(255,255,255,
       </div>
       <div class="team-card-bottom">
         <p class="team-dept">Emeritus Professor, School of Pharmacy, NKUA. Pioneer of the Finite Absorption Time concept. Over 40 years of research in pharmacokinetics and drug development.</p>
+        <a class="team-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Macheras+P" target="_blank" rel="noopener">Publications &#8599;</a>
       </div>
     </div>
     <div class="team-card">
@@ -1577,6 +1767,7 @@ nav { background: rgba(14,48,56,.96); border-bottom: 1px solid rgba(255,255,255,
       </div>
       <div class="team-card-bottom">
         <p class="team-dept">Leads the Drug–Generics–Super Generics Laboratory. Expert in pharmaceutical sciences and the application of F.A.T. models to generic drug development.</p>
+        <a class="team-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Dallas+P" target="_blank" rel="noopener">Publications &#8599;</a>
       </div>
     </div>
     <div class="team-card">
@@ -1587,6 +1778,7 @@ nav { background: rgba(14,48,56,.96); border-bottom: 1px solid rgba(255,255,255,
       </div>
       <div class="team-card-bottom">
         <p class="team-dept">Directs the Pharmaceutical Analysis Laboratory. Specializes in analytical chemistry methods for drug substance and product characterization.</p>
+        <a class="team-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Georgakopoulos+K" target="_blank" rel="noopener">Publications &#8599;</a>
       </div>
     </div>
     <div class="team-card">
@@ -1597,6 +1789,7 @@ nav { background: rgba(14,48,56,.96); border-bottom: 1px solid rgba(255,255,255,
       </div>
       <div class="team-card-bottom">
         <p class="team-dept">Emeritus Professor, School of Medicine, University of Crete. He currently serves as Chief Strategy Officer of the European Heart Agency/ESC.</p>
+        <a class="team-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Vardas+P" target="_blank" rel="noopener">Publications &#8599;</a>
       </div>
     </div>
     <div class="team-card">
@@ -1607,6 +1800,7 @@ nav { background: rgba(14,48,56,.96); border-bottom: 1px solid rgba(255,255,255,
       </div>
       <div class="team-card-bottom">
         <p class="team-dept">Pavlos Chryssafidis is a Dental Surgeon, Physicist and holds a master's degree in Computational Mechanics from NTUA.</p>
+        <a class="team-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Chryssafidis+P" target="_blank" rel="noopener">Publications &#8599;</a>
       </div>
     </div>
     <div class="team-card">
@@ -1617,6 +1811,7 @@ nav { background: rgba(14,48,56,.96); border-bottom: 1px solid rgba(255,255,255,
       </div>
       <div class="team-card-bottom">
         <p class="team-dept">Pharmacist and regulatory specialist with expertise in EMA/FDA submissions. Leads the Regulatory Affairs Unit, ensuring compliance across all service lines.</p>
+        <a class="team-link" href="https://pubmed.ncbi.nlm.nih.gov/?term=Kalantzi+A" target="_blank" rel="noopener">Publications &#8599;</a>
       </div>
     </div>
     <div class="team-card">
@@ -1644,34 +1839,45 @@ nav { background: rgba(14,48,56,.96); border-bottom: 1px solid rgba(255,255,255,
     <div class="pub-item">
       <div class="pub-year">2022</div>
       <div class="pub-content">
-        <h4>Columbus' egg: Oral drugs are absorbed in finite time</h4>
-        <p class="pub-authors">Macheras P, Tsekouras AA.</p>
-        <p class="pub-journal">European Journal of Pharmaceutical Sciences · Vol. 176 · doi: 10.1016/j.ejps.2022.106265</p>
+        <h4>Columbus&rsquo; egg: Oral drugs are absorbed in finite time</h4>
+        <p class="pub-authors">Tsekouras AA, Macheras P.</p>
+        <p class="pub-journal">European Journal of Pharmaceutical Sciences &middot; 176:106265 &middot; doi: 10.1016/j.ejps.2022.106265</p>
       </div>
-      <a href="https://pubmed.ncbi.nlm.nih.gov/35863551/" target="_blank" class="pub-link">
-        PubMed ↗
+      <a href="https://pubmed.ncbi.nlm.nih.gov/35863551/" target="_blank" rel="noopener" class="pub-link">
+        PubMed &#8599;
       </a>
     </div>
     <div class="pub-item">
       <div class="pub-year">2024</div>
       <div class="pub-content">
-        <h4>Revamped drug development in Phases I, II and III with the F.A.T. framework</h4>
-        <p class="pub-authors">Macheras P et al.</p>
-        <p class="pub-journal">Available via RDCU · rdcu.be/epESG</p>
+        <h4>IVIVC Revised</h4>
+        <p class="pub-authors">Alimpertis N, Simitopoulos A, Tsekouras AA, Macheras P.</p>
+        <p class="pub-journal">Pharmaceutical Research &middot; 41:235&ndash;246 &middot; doi: 10.1007/s11095-024-03653-x</p>
       </div>
-      <a href="https://rdcu.be/epESG" target="_blank" class="pub-link">
-        Read ↗
+      <a href="https://pubmed.ncbi.nlm.nih.gov/38191705/" target="_blank" rel="noopener" class="pub-link">
+        PubMed &#8599;
       </a>
     </div>
     <div class="pub-item">
       <div class="pub-year">2024</div>
       <div class="pub-content">
-        <h4>Revised IVIVC strategy for the development of generics</h4>
-        <p class="pub-authors">Macheras P et al.</p>
-        <p class="pub-journal">Pharmaceutical Research · doi: 10.1007/s11095-024-03653-x</p>
+        <h4>Application of the Finite Absorption Time (F.A.T.) Concept in the Assessment of Bioequivalence</h4>
+        <p class="pub-authors">Tsekouras AA, Macheras P.</p>
+        <p class="pub-journal">Pharmaceutical Research &middot; 41:1413&ndash;1425 &middot; doi: 10.1007/s11095-024-03727-w</p>
       </div>
-      <a href="https://doi.org/10.1007/s11095-024-03653-x" target="_blank" class="pub-link">
-        DOI ↗
+      <a href="https://doi.org/10.1007/s11095-024-03727-w" target="_blank" rel="noopener" class="pub-link">
+        DOI &#8599;
+      </a>
+    </div>
+    <div class="pub-item">
+      <div class="pub-year">2025</div>
+      <div class="pub-content">
+        <h4>The Finite Absorption Time Concept Guiding Model-Informed Drug &amp; Generics Development in Clinical Pharmacology</h4>
+        <p class="pub-authors">Macheras P, Tsekouras AA, S&aacute;nchez-Herrero S, Kosmidis K.</p>
+        <p class="pub-journal">Pharmaceutical Research &middot; 42:891&ndash;906 &middot; doi: 10.1007/s11095-025-03878-4</p>
+      </div>
+      <a href="https://doi.org/10.1007/s11095-025-03878-4" target="_blank" rel="noopener" class="pub-link">
+        DOI &#8599;
       </a>
     </div>
     <div class="pub-item">
@@ -1679,7 +1885,7 @@ nav { background: rgba(14,48,56,.96); border-bottom: 1px solid rgba(255,255,255,
       <div class="pub-content">
         <h4>The top-down Finite Time Pharmacokinetic (FTPK) models vis-a-vis the bottom-up PBPK models in early drug development</h4>
         <p class="pub-authors">Macheras P, Alimpertis N, Tsekouras AA.</p>
-        <p class="pub-journal">European Journal of Pharmaceutical Sciences &middot; Vol. 227 &middot; 107653 &middot; doi: 10.1016/j.ejps.2026.107653</p>
+        <p class="pub-journal">European Journal of Pharmaceutical Sciences &middot; 227:107653 &middot; doi: 10.1016/j.ejps.2026.107653</p>
       </div>
       <a href="https://doi.org/10.1016/j.ejps.2026.107653" target="_blank" rel="noopener" class="pub-link">
         DOI &#8599;
@@ -1702,36 +1908,36 @@ nav { background: rgba(14,48,56,.96); border-bottom: 1px solid rgba(255,255,255,
 <!-- ── PARTNERS ───────────────────────────────────────────────── -->
 <section id="partners">
   <div class="section-header fade-in">
-    <span class="section-tag">Partners & Collaborators</span>
-    <h2 class="section-title">Working with academia,<br><strong>industry & healthcare</strong></h2>
+    <span class="section-tag">Standing &amp; Affiliation</span>
+    <h2 class="section-title">Built on<br><strong>peer-reviewed science</strong></h2>
   </div>
 
   <div class="partners-wrap fade-in">
     <p class="partners-intro">
-      F.A.T. Laboratories collaborates with pharmaceutical companies, research institutions,
-      hospitals and regulatory bodies to bring the F.A.T. paradigm into real-world drug development.
+      Our work is not a claim &mdash; it is a published record. The F.A.T. concept has been developed,
+      peer-reviewed and presented in the open literature since 2020, and every service we offer rests on it.
     </p>
 
     <div class="partners-grid">
       <div class="partner-item">
-        <div class="partner-logo-placeholder" style="background:rgba(20,66,79,.12);border-color:rgba(20,66,79,.3);color:#14424F;"><svg width="22" height="22" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"><rect x="16" y="96" width="104" height="128"/><rect x="120" y="48" width="120" height="176"/><line x1="16" y1="224" x2="240" y2="224"/><line x1="56" y1="128" x2="80" y2="128"/><line x1="56" y1="160" x2="80" y2="160"/><line x1="56" y1="192" x2="80" y2="192"/><line x1="160" y1="80" x2="184" y2="80"/><line x1="160" y1="112" x2="184" y2="112"/><line x1="160" y1="144" x2="184" y2="144"/></svg></div>
-        <div class="partner-name">Academic Institutions</div>
-        <div class="partner-type">Research Partner</div>
+        <div class="partner-logo-placeholder" style="background:rgba(20,66,79,.09);border-color:rgba(20,66,79,.22);color:#14424F;"><svg width="22" height="22" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"><path d="M128,48 L232,96 L128,144 L24,96Z"/><path d="M80,120 L80,176 C80,176 104,200 128,200 C152,200 176,176 176,176 L176,120"/></svg></div>
+        <div class="partner-name">NKUA Spinoff</div>
+        <div class="partner-type">Established October 2025</div>
       </div>
       <div class="partner-item">
-        <div class="partner-logo-placeholder" style="background:rgba(46,110,126,.12);border-color:rgba(46,110,126,.3);color:#2E6E7E;"><svg width="22" height="22" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"><path d="M24,224V112L88,152V112L152,152V64H232V224Z"/><line x1="24" y1="224" x2="232" y2="224"/><rect x="168" y="96" width="24" height="24"/></svg></div>
-        <div class="partner-name">Pharma Companies</div>
-        <div class="partner-type">Industry Client</div>
+        <div class="partner-logo-placeholder" style="background:rgba(20,66,79,.09);border-color:rgba(20,66,79,.22);color:#14424F;"><svg width="22" height="22" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"><path d="M32,64 C64,40 96,40 128,64 C160,40 192,40 224,64 L224,192 C192,168 160,168 128,192 C96,168 64,168 32,192Z"/><line x1="128" y1="64" x2="128" y2="192"/></svg></div>
+        <div class="partner-name">30+ Peer-Reviewed Papers</div>
+        <div class="partner-type">Eur J Pharm Sci &middot; Pharm Res &middot; JPKPD</div>
       </div>
       <div class="partner-item">
-        <div class="partner-logo-placeholder" style="background:rgba(163,71,51,.12);border-color:rgba(163,71,51,.3);color:#A34733;"><svg width="22" height="22" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"><rect x="32" y="80" width="192" height="152"/><path d="M32,80 L128,24 L224,80"/><line x1="128" y1="112" x2="128" y2="168"/><line x1="100" y1="140" x2="156" y2="140"/></svg></div>
-        <div class="partner-name">Hospitals & Clinics</div>
-        <div class="partner-type">Clinical Partner</div>
+        <div class="partner-logo-placeholder" style="background:rgba(156,95,32,.10);border-color:rgba(156,95,32,.24);color:#9C5F20;"><svg width="22" height="22" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"><circle cx="128" cy="96" r="56"/><polyline points="88,148 72,232 128,200 184,232 168,148"/></svg></div>
+        <div class="partner-name">Presented at PAGE 2023</div>
+        <div class="partner-type">31st PAGE meeting, La Coru&ntilde;a</div>
       </div>
       <div class="partner-item">
-        <div class="partner-logo-placeholder" style="background:rgba(156,95,32,.12);border-color:rgba(156,95,32,.3);color:#9C5F20;"><svg width="22" height="22" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"><path d="M128,128 L224,128 A96,96,0,0,1,128,224Z"/><path d="M128,32 A96,96,0,1,0,224,128 L128,128Z"/></svg></div>
-        <div class="partner-name">Regulatory Bodies</div>
-        <div class="partner-type">Compliance</div>
+        <div class="partner-logo-placeholder" style="background:rgba(20,66,79,.09);border-color:rgba(20,66,79,.22);color:#14424F;"><svg width="22" height="22" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"><path d="M40,64 L128,32 L216,64 V128 C216,184 128,224 128,224 C128,224 40,184 40,128Z"/><polyline points="96,128 120,152 164,104"/></svg></div>
+        <div class="partner-name">EMA &amp; FDA Aligned</div>
+        <div class="partner-type">Studies run to current guidelines</div>
       </div>
     </div>
 
@@ -1747,6 +1953,69 @@ nav { background: rgba(14,48,56,.96); border-bottom: 1px solid rgba(255,255,255,
         </p>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ── ANNOUNCEMENTS ────────────────────────────────────────────── -->
+<section id="announcements" style="background:var(--bg3-t); padding:5rem 4rem; border-top:1px solid var(--border); position:relative;">
+  <div style="max-width:var(--max); margin:0 auto;">
+    <div style="text-align:center; margin-bottom:3rem;">
+      <span style="font-family:var(--font-mono); font-size:.7rem; letter-spacing:.25em; color:var(--accent); text-transform:uppercase;">Announcements</span>
+      <h2 style="font-family:var(--font-display); font-size:clamp(1.8rem,3vw,2.8rem); font-weight:300; color:var(--white); margin:.8rem 0 .5rem; line-height:1.2;">Upcoming Events &amp; <strong>News</strong></h2>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:1.5rem;">
+
+    <!-- FTPK Software Launch -->
+    <div style="background:var(--surface); border:1px solid var(--border); border-radius:12px; overflow:hidden; position:relative;">
+      <div style="position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg, transparent, var(--accent), transparent);"></div>
+      <div style="padding:2.5rem 3rem;">
+        <div style="display:flex; align-items:center; gap:1rem; margin-bottom:1.5rem; flex-wrap:wrap;">
+          <span style="font-family:var(--font-mono); font-size:.65rem; letter-spacing:.15em; text-transform:uppercase; background:rgba(20,66,79,.1); color:var(--accent); border:1px solid rgba(20,66,79,.2); padding:.3rem .8rem; border-radius:100px;">Now Live</span>
+          <span style="font-family:var(--font-mono); font-size:.65rem; color:var(--muted);">June 2, 2026</span>
+        </div>
+        <h3 style="font-family:var(--font-display); font-size:1.6rem; font-weight:400; color:var(--white); line-height:1.3; margin-bottom:1rem;">The Finite Time Pharmacokinetics (FTPK) Software is now live</h3>
+        <p style="color:var(--muted); font-size:.9rem; line-height:1.8; margin-bottom:1.5rem;">
+          Our Finite Time Pharmacokinetics web application is now publicly available. Fit your oral absorption models with a finite absorption time &tau;, directly from your dosing and concentration data &mdash; no first-order infinite tail required.
+        </p>
+        <div style="background:rgba(20,66,79,.05); border:1px solid rgba(20,66,79,.18); border-radius:10px; padding:1.2rem 1.5rem; margin-bottom:1.5rem;">
+          <p style="color:var(--muted); font-size:.85rem; line-height:1.7; margin:0;">
+            This release is a preview build. Access is granted on request &mdash; academic users receive it free of charge.
+            <a href="#contact" style="color:var(--accent); text-decoration:none; font-weight:600;">Request access</a>.
+          </p>
+        </div>
+        <a href="https://web-production-ac13.up.railway.app/" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:.5rem; background:var(--accent); color:var(--bg); padding:.7rem 1.5rem; border-radius:var(--radius); font-family:var(--font-ui); font-weight:700; font-size:.82rem; letter-spacing:.08em; text-transform:uppercase; text-decoration:none; transition:transform .2s, box-shadow .2s; ">
+          Launch FTPK Software
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    </div><!-- /announcements flex wrapper -->
+  </div>
+</section>
+
+<!-- ── STAY INFORMED ───────────────────────────────────────────── -->
+<section style="background:var(--bg2-t); padding:4rem; border-top:1px solid var(--border); border-bottom:1px solid var(--border); position:relative;">
+  <div style="max-width:600px; margin:0 auto; text-align:center;">
+    <span style="font-family:var(--font-mono); font-size:.7rem; letter-spacing:.25em; color:var(--accent); text-transform:uppercase;">Stay Informed</span>
+    <h2 style="font-family:var(--font-display); font-size:clamp(1.6rem,3vw,2.4rem); font-weight:300; color:var(--white); margin:.8rem 0 .6rem; line-height:1.2;">Be the first to know about<br><strong>new publications & updates</strong></h2>
+    <p style="color:var(--muted); font-size:.9rem; line-height:1.8; margin-bottom:2rem;">Leave your email and we'll reach out when there's something worth sharing — new research, software updates, or announcements.</p>
+    <form action="https://formspree.io/f/mjgppzzv" method="POST"
+          style="display:flex; gap:.75rem; justify-content:center; flex-wrap:wrap;">
+      <input type="email" name="email" placeholder="your@email.com" required
+             style="flex:1; min-width:240px; max-width:340px; padding:.8rem 1.2rem;
+                    background:#FFFFFF; border:1px solid var(--border);
+                    border-radius:var(--radius); color:var(--text); font-family:var(--font-ui);
+                    font-size:.9rem; outline:none; transition:border-color .2s;"
+             onfocus="this.style.borderColor='var(--accent)'"
+             onblur="this.style.borderColor=''" />
+      <button type="submit" class="btn-primary" style="white-space:nowrap;">
+        Notify me
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </form>
+    <p style="color:var(--muted); font-size:.75rem; margin-top:1rem; opacity:.6;">No spam. Unsubscribe at any time.</p>
   </div>
 </section>
 
@@ -1840,72 +2109,6 @@ nav { background: rgba(14,48,56,.96); border-bottom: 1px solid rgba(255,255,255,
   </div>
 </section>
 
-<!-- ── ANNOUNCEMENTS ────────────────────────────────────────────── -->
-<section id="announcements" style="background:var(--bg3-t); padding:5rem 4rem; border-top:1px solid var(--border); position:relative;">
-  <div style="max-width:var(--max); margin:0 auto;">
-    <div style="text-align:center; margin-bottom:3rem;">
-      <span style="font-family:var(--font-mono); font-size:.7rem; letter-spacing:.25em; color:var(--accent); text-transform:uppercase;">Announcements</span>
-      <h2 style="font-family:var(--font-display); font-size:clamp(1.8rem,3vw,2.8rem); font-weight:300; color:var(--white); margin:.8rem 0 .5rem; line-height:1.2;">Upcoming Events &amp; <strong>News</strong></h2>
-    </div>
-
-    <div style="display:flex; flex-direction:column; gap:1.5rem;">
-
-    <!-- FTPK Software Launch -->
-    <div style="background:var(--surface); border:1px solid var(--border); border-radius:12px; overflow:hidden; position:relative;">
-      <div style="position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg, transparent, var(--accent), transparent);"></div>
-      <div style="padding:2.5rem 3rem;">
-        <div style="display:flex; align-items:center; gap:1rem; margin-bottom:1.5rem; flex-wrap:wrap;">
-          <span style="font-family:var(--font-mono); font-size:.65rem; letter-spacing:.15em; text-transform:uppercase; background:rgba(20,66,79,.1); color:var(--accent); border:1px solid rgba(20,66,79,.2); padding:.3rem .8rem; border-radius:100px;">Now Live</span>
-          <span style="font-family:var(--font-mono); font-size:.65rem; color:var(--muted);">June 2, 2026</span>
-        </div>
-        <h3 style="font-family:var(--font-display); font-size:1.6rem; font-weight:400; color:var(--white); line-height:1.3; margin-bottom:1rem;">The Finite Time Pharmacokinetics (FTPK) Software is now live</h3>
-        <p style="color:var(--muted); font-size:.9rem; line-height:1.8; margin-bottom:1.5rem;">
-          Our Finite Time Pharmacokinetics web application is now publicly available. Fit your oral absorption models with a finite absorption time &tau;, directly from your dosing and concentration data &mdash; no first-order infinite tail required.
-        </p>
-        <div style="background:rgba(20,66,79,.05); border:1px solid rgba(20,66,79,.18); border-radius:10px; padding:1.2rem 1.5rem; margin-bottom:1.5rem;">
-          <p style="color:var(--muted); font-size:.85rem; line-height:1.7; margin:0 0 .7rem;">
-            This release is a preview build. To explore it, enter the access code below when the application prompts you:
-          </p>
-          <div style="display:flex; align-items:center; gap:.7rem; flex-wrap:wrap;">
-            <span style="font-family:var(--font-mono); font-size:1.05rem; font-weight:700; letter-spacing:.08em; color:var(--accent); background:rgba(20,66,79,.1); border:1px solid rgba(20,66,79,.25); padding:.4rem 1rem; border-radius:8px;">kinetics7</span>
-            <span style="font-family:var(--font-mono); font-size:.7rem; color:var(--muted);">demo access code</span>
-          </div>
-        </div>
-        <a href="https://web-production-ac13.up.railway.app/" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:.5rem; background:var(--accent); color:var(--bg); padding:.7rem 1.5rem; border-radius:var(--radius); font-family:var(--font-ui); font-weight:700; font-size:.82rem; letter-spacing:.08em; text-transform:uppercase; text-decoration:none; transition:transform .2s, box-shadow .2s; ">
-          Launch FTPK Software
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-      </div>
-    </div>
-
-    </div><!-- /announcements flex wrapper -->
-  </div>
-</section>
-
-<!-- ── STAY INFORMED ───────────────────────────────────────────── -->
-<section style="background:var(--bg2-t); padding:4rem; border-top:1px solid var(--border); border-bottom:1px solid var(--border); position:relative;">
-  <div style="max-width:600px; margin:0 auto; text-align:center;">
-    <span style="font-family:var(--font-mono); font-size:.7rem; letter-spacing:.25em; color:var(--accent); text-transform:uppercase;">Stay Informed</span>
-    <h2 style="font-family:var(--font-display); font-size:clamp(1.6rem,3vw,2.4rem); font-weight:300; color:var(--white); margin:.8rem 0 .6rem; line-height:1.2;">Be the first to know about<br><strong>new publications & updates</strong></h2>
-    <p style="color:var(--muted); font-size:.9rem; line-height:1.8; margin-bottom:2rem;">Leave your email and we'll reach out when there's something worth sharing — new research, software updates, or announcements.</p>
-    <form action="https://formspree.io/f/mjgppzzv" method="POST"
-          style="display:flex; gap:.75rem; justify-content:center; flex-wrap:wrap;">
-      <input type="email" name="email" placeholder="your@email.com" required
-             style="flex:1; min-width:240px; max-width:340px; padding:.8rem 1.2rem;
-                    background:#FFFFFF; border:1px solid var(--border);
-                    border-radius:var(--radius); color:var(--text); font-family:var(--font-ui);
-                    font-size:.9rem; outline:none; transition:border-color .2s;"
-             onfocus="this.style.borderColor='var(--accent)'"
-             onblur="this.style.borderColor=''" />
-      <button type="submit" class="btn-primary" style="white-space:nowrap;">
-        Notify me
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </button>
-    </form>
-    <p style="color:var(--muted); font-size:.75rem; margin-top:1rem; opacity:.6;">No spam. Unsubscribe at any time.</p>
-  </div>
-</section>
-
 <!-- ── FOOTER ─────────────────────────────────────────────────── -->
 <footer>
   <div class="footer-inner">
@@ -1917,11 +2120,14 @@ nav { background: rgba(14,48,56,.96); border-bottom: 1px solid rgba(255,255,255,
       <a href="#concept">Science</a>
       <a href="#services">Services</a>
       <a href="#team">Team</a>
-      <a href="#publications">Publications</a>
       <a href="#pricing">Pricing</a>
+      <a href="#publications">Publications</a>
       <a href="#contact">Contact</a>
     </div>
-    <div class="footer-copy">© 2026 F.A.T. Laboratories. All rights reserved.</div>
+    <div class="footer-copy">
+      F.A.T. Laboratories I.K.E. &middot; Athens, Greece<br>
+      © 2026 F.A.T. Laboratories. All rights reserved.
+    </div>
   </div>
 </footer>
 
@@ -2170,6 +2376,73 @@ setTimeout(() => {
     requestAnimationFrame(animate);
   }
   animate();
+})();
+
+/* ─ L_AB calculator: one compartment, one zero-order input stage ─ */
+(function() {
+  var kelEl = document.getElementById('calc-kel');
+  var tauEl = document.getElementById('calc-tau');
+  if (!kelEl || !tauEl) return;
+
+  var X0 = 60, X1 = 620, Y0 = 280, YTOP = 40, FDV = 100;
+  var out = {
+    kel: document.getElementById('calc-kel-out'),
+    tau: document.getElementById('calc-tau-out'),
+    prod: document.getElementById('calc-product'),
+    lab: document.getElementById('calc-lab'),
+    curve: document.getElementById('calc-curve'),
+    gap: document.getElementById('calc-gap'),
+    taul: document.getElementById('calc-taul'),
+    taut: document.getElementById('calc-taut'),
+    gapt: document.getElementById('calc-gapt'),
+    peak: document.getElementById('calc-peak')
+  };
+
+  function draw() {
+    var kel = parseFloat(kelEl.value), tau = parseFloat(tauEl.value);
+    var p = kel * tau;
+    var lab = 1 - (1 - Math.exp(-p)) / p;
+    var R = FDV / tau;
+    var tMax = Math.max(tau * 3, tau + 3 / kel);
+    var sx = function(t) { return X0 + (X1 - X0) * t / tMax; };
+    var sy = function(c) { return Y0 - (Y0 - YTOP) * c / FDV; };
+    var conc = function(t) {
+      if (t <= tau) return (R / kel) * (1 - Math.exp(-kel * t));
+      return (R / kel) * (1 - Math.exp(-kel * tau)) * Math.exp(-kel * (t - tau));
+    };
+
+    var d = '', n = 240, i, t;
+    for (i = 0; i <= n; i++) {
+      t = tMax * i / n;
+      d += (i ? ' L' : 'M') + sx(t).toFixed(2) + ',' + sy(conc(t)).toFixed(2);
+    }
+    out.curve.setAttribute('d', d);
+
+    var xt = sx(tau), yPeak = sy(conc(tau));
+    out.taul.setAttribute('x1', xt.toFixed(2));
+    out.taul.setAttribute('x2', xt.toFixed(2));
+    out.taul.setAttribute('y1', yPeak.toFixed(2));
+    out.taut.setAttribute('x', xt.toFixed(2));
+    out.taut.textContent = '\u03C4 = ' + tau.toFixed(2) + ' h';
+    out.peak.setAttribute('cx', xt.toFixed(2));
+    out.peak.setAttribute('cy', yPeak.toFixed(2));
+
+    out.gap.setAttribute('d',
+      'M' + xt.toFixed(2) + ',' + YTOP + ' L' + X1 + ',' + YTOP +
+      ' L' + X1 + ',' + yPeak.toFixed(2) + ' L' + xt.toFixed(2) + ',' + yPeak.toFixed(2) + ' Z');
+    out.gapt.setAttribute('x', (xt + 12).toFixed(2));
+    out.gapt.setAttribute('y', ((YTOP + yPeak) / 2 + 4).toFixed(2));
+    out.gapt.textContent = 'L\u2090\u1D66 = ' + lab.toFixed(2);
+
+    out.kel.textContent = kel.toFixed(2) + ' h\u207B\u00B9';
+    out.tau.textContent = tau.toFixed(2) + ' h';
+    out.prod.textContent = p.toFixed(2);
+    out.lab.textContent = 'F \u2265 ' + lab.toFixed(2);
+  }
+
+  kelEl.addEventListener('input', draw);
+  tauEl.addEventListener('input', draw);
+  draw();
 })();
 
 /* ─ Hero SVG curve animation ─ */
