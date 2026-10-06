@@ -561,6 +561,47 @@ nav.scrolled { padding: .4rem 4rem; }
   border-radius: 100px;
 }
 
+/* ── ROADMAP ("Where we are heading") ───────────────────────────
+   Research targets, NOT services: dashed borders, an "In development"
+   badge, no hover state and no call-to-action, so nothing here reads
+   as something a visitor can order. */
+#roadmap {
+  padding: 7rem 4rem;
+  background: var(--bg3-t);
+  position: relative;
+  border-top: 1px solid var(--border);
+}
+.roadmap-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem; max-width: var(--max); margin: 0 auto;
+}
+.roadmap-card {
+  background: transparent;
+  border: 1px dashed var(--accent2);
+  border-radius: 12px; padding: 2.5rem;
+}
+.roadmap-badge {
+  display: inline-block; margin-bottom: 1.2rem;
+  font-family: var(--font-mono); font-size: .62rem;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: var(--gold); padding: .25rem .7rem;
+  border: 1px dashed var(--gold); border-radius: 100px;
+}
+.roadmap-card h3 {
+  font-family: var(--font-display); font-size: 1.35rem;
+  font-weight: 600; color: var(--text);
+  margin-bottom: .75rem; line-height: 1.3;
+}
+.roadmap-card p { color: var(--muted); font-size: .88rem; line-height: 1.8; }
+.roadmap-card p + p { margin-top: .7rem; }
+.roadmap-card a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent2); }
+.roadmap-card a:hover { color: var(--accent2); }
+@media (max-width: 960px) {
+  #roadmap { padding: 5rem 2rem; }
+  .roadmap-grid { grid-template-columns: 1fr; }
+  .roadmap-card { padding: 2rem 1.5rem; }
+}
+
 /* ── PRICING ─────────────────────────────────────────────────── */
 #pricing {
   padding: 7rem 4rem;
@@ -1338,7 +1379,7 @@ nav { background: rgba(14,48,56,.96); border-bottom: 1px solid rgba(255,255,255,
         F.A.T. model: absorption ∈ [0, τ]<br>
         ✓ Physiologically accurate
       </div>
-      <a href="#calculator" class="btn-secondary" style="margin-top:1.6rem;">Try it yourself</a>
+      <a href="#calculator" class="btn-secondary" style="margin-top:1.6rem;">See what &tau; reveals</a>
     </div>
   </div>
 </section>
@@ -1349,7 +1390,8 @@ nav { background: rgba(14,48,56,.96); border-bottom: 1px solid rgba(255,255,255,
     <span class="section-tag">See it for yourself</span>
     <h2 class="section-title">A lower bound on bioavailability,<br><strong>from oral data alone</strong></h2>
     <p class="section-sub">
-      Move the two estimates that an oral study gives you &mdash; the elimination rate constant
+      Because absorption ends at &tau;, the concentration reached at that moment can be compared with the one
+      the fully absorbed dose would have produced. Move the two estimates that an oral study gives you &mdash; the elimination rate constant
       k<sub>el</sub> and the absorption duration &tau; &mdash; and watch the lower boundary of absolute
       bioavailability fall out. No intravenous arm. This is the simplest case: one compartment, one input stage.
     </p>
@@ -1415,7 +1457,7 @@ nav { background: rgba(14,48,56,.96); border-bottom: 1px solid rgba(255,255,255,
   <div class="section-header fade-in">
     <span class="section-tag">What We Offer</span>
     <h2 class="section-title">Model-informed services<br><strong>across the drug lifecycle</strong></h2>
-    <p class="section-sub">From early-phase studies to regulatory submissions, we apply the F.A.T. framework at every stage. In all stages of drug &amp; generics development we analyze the data utilizing the <a href="https://web-production-ac13.up.railway.app/" target="_blank" rel="noopener" style="color:var(--accent); text-decoration:none;">Finite Time Pharmacokinetics (FTPK) Software</a>. Population PK studies are analyzed with NONMEM using the F.A.T.-based models as structural models, which are embedded in the FTPK software.</p>
+    <p class="section-sub">From early-phase studies to regulatory submissions, we apply the F.A.T. framework at every stage. In all stages of drug &amp; generics development we analyze the data utilizing the <a href="https://web-production-ac13.up.railway.app/" target="_blank" rel="noopener" style="color:var(--accent); text-decoration:none;">Finite Time Pharmacokinetics (FTPK) Software</a>, which replaces time-consuming PBPK modeling work. Population PK studies are analyzed with NONMEM using the F.A.T.-based models as structural models, which are embedded in the FTPK software.</p>
   </div>
 
   <!-- A. DRUGS -->
@@ -1427,13 +1469,13 @@ nav { background: rgba(14,48,56,.96); border-bottom: 1px solid rgba(255,255,255,
       <div class="service-icon" style="background:rgba(20,66,79,.12);border-color:rgba(20,66,79,.3);color:#14424F;"><svg width="22" height="22" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"><path d="M56,32c0,0 48,40 48,96s-48,96-48,96"/><path d="M200,32c0,0-48,40-48,96s48,96 48,96"/><line x1="62" y1="88" x2="194" y2="88"/><line x1="62" y1="168" x2="194" y2="168"/><line x1="80" y1="60" x2="176" y2="60"/><line x1="80" y1="196" x2="176" y2="196"/></svg></div>
       <h3>Early Drug Development</h3>
       <p>
-        We do not follow the classical development based on bottom-up PBPK models
+        We do not follow the classical development based on bottom-up PBPK models, since no time-consuming and controversial PBPK modeling is required
         (see <a href="https://rdcu.be/epESG" target="_blank" style="color:var(--accent);text-decoration:none;">rationale</a>,
         <a href="https://pubmed.ncbi.nlm.nih.gov/41740805/" target="_blank" style="color:var(--accent);text-decoration:none;">PBFTPK models — PubMed</a> &amp;
         <a href="https://doi.org/10.1016/j.ejps.2026.107653" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;">top-down FTPK vs. bottom-up PBPK</a>).
-        We perform an oral study with a small number of volunteers and analyze data with the FTPK Software,
+        We perform an oral study with six volunteers and analyze data with the FTPK Software,
         obtaining the detailed PK profile: number of drug input stages, their duration and input rates,
-        and elimination/disposition rate constants. Most importantly, we estimate — <strong style="color:#ffffff;font-weight:700;">uniquely from an oral study alone</strong> — a lower boundary of absolute bioavailability, L<sub>AB</sub>; for the simplest case, a one-compartment model with one input stage,
+        and elimination/disposition rate constants. Most importantly, we estimate — <strong style="color:var(--text);font-weight:700;">uniquely from an oral study alone</strong> — a lower boundary of absolute bioavailability, L<sub>AB</sub>; for the simplest case, a one-compartment model with one input stage,
       </p>
       <div class="concept-formula" style="margin:1rem 0; font-size:.9rem;">
         L<sub>AB</sub> = 1 &minus; (1 &minus; e<sup>&minus;k<sub>el</sub>&thinsp;&tau;</sup>) &divide; (k<sub>el</sub>&thinsp;&tau;)
@@ -1587,11 +1629,11 @@ nav { background: rgba(14,48,56,.96); border-bottom: 1px solid rgba(255,255,255,
       <div class="service-icon" style="background:rgba(46,110,126,.12);border-color:rgba(46,110,126,.3);color:#2E6E7E;"><svg width="22" height="22" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"><rect x="40" y="88" width="176" height="80" rx="40"/><line x1="128" y1="88" x2="128" y2="168"/></svg></div>
       <h3>Development of Generics</h3>
       <p>
-        Prior to any in vitro study for the development of a generic formulation, we analyze the in vivo data
+        Prior to any in vitro study for the development of a generic formulation, we analyze the published in vivo data
         of the Reference formulation using the FTPK software. We then construct the % Absorbed versus time curve
         following our <a href="https://doi.org/10.1007/s11095-023-03578-x" target="_blank" style="color:var(--accent);text-decoration:none;">novel methodology</a>.
         We then follow our <a href="https://doi.org/10.1007/s11095-024-03653-x" target="_blank" style="color:var(--accent);text-decoration:none;">revised IVIVC strategy</a>
-        based on dissolution results of the reference formulation carried out under sink conditions (e.g. USP 4).
+        coupled with comparative dissolution studies of the reference formulation carried out under sink conditions (e.g. USP 4).
         This approach reveals the IVIVs, if any, for the Reference formulation and guides the rational development
         of the generic formulation. Our approach aligns with the latest EMA/FDA guidance and F.A.T.-informed science.
       </p>
@@ -1606,7 +1648,7 @@ nav { background: rgba(14,48,56,.96); border-bottom: 1px solid rgba(255,255,255,
         FDA and EMA regulatory-compliant assessments. Apart from the classical BE report, we provide
         an additional analysis based on a F.A.T. model-dependent methodology using
         <a href="https://doi.org/10.1007/s11095-024-03727-w" target="_blank" style="color:var(--accent);text-decoration:none;">meaningful parameters</a>,
-        (FD/V<sub>d</sub>) and (FD/&tau;V<sub>d</sub>), for the extent and rate of absorption for both formulations.
+        (FD/V<sub>d</sub>, in concentration units) and (FD/&tau;V<sub>d</sub>, in concentration/time units), for the extent and rate of absorption, respectively, for both formulations.
         In addition, the lower boundary of absolute bioavailability L<sub>AB</sub> will be provided for both formulations.
         Needless to say, we re-analyze failed BE studies using the FTPK software.
       </p>
@@ -1624,7 +1666,7 @@ nav { background: rgba(14,48,56,.96); border-bottom: 1px solid rgba(255,255,255,
       <h3>Analysis with the FTPK software</h3>
       <p>We utilize FTPK software for the analysis of pharmacokinetic data. Six PBFTPK models are currently employed, comprising one- and two-compartment disposition models with one, two, or three input stages. In all cases, the number of input stages is determined, and parameter estimates — along with their associated uncertainties — are obtained for the duration and input rates of each stage, as well as for the elimination rate constant or disposition constants. Most importantly, an estimate of the concentration corresponding to the fraction of dose absorbed is derived, allowing the estimation of a lower bound of absolute bioavailability based solely on oral data, through comparison with the observed maximum concentration.</p>
       <p style="margin-top:.8rem; color:var(--muted); font-size:.88rem; line-height:1.8;">
-        We conduct population pharmacokinetic (PK) analysis using NONMEM.
+        We conduct population pharmacokinetic (PK) analysis using NONMEM based on PBFTPK structural models.
       </p>
 
       <div style="margin-top:1.5rem; border-radius:8px; overflow:hidden; border:1px solid rgba(20,66,79,0.15); text-align:center; background:#0E3038;">
@@ -1638,7 +1680,7 @@ nav { background: rgba(14,48,56,.96); border-bottom: 1px solid rgba(255,255,255,
     <div class="service-card">
       <div class="service-icon" style="background:rgba(46,110,126,.12);border-color:rgba(46,110,126,.3);color:#2E6E7E;"><svg width="22" height="22" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"><rect x="40" y="88" width="176" height="80" rx="40"/><line x1="128" y1="88" x2="128" y2="168"/></svg></div>
       <h3>Model-Informed, F.A.T.-Based Development of Modified-Release Formulations</h3>
-      <p>The analytical power of FTPK software enhances the rational design of modified-release formulations. This is because sustained-release formulations are typically designed to exhibit an initial immediate-release phase followed by a prolonged sustained-release phase. Consider a company aiming to develop a 20 mg once-daily formulation to replace an existing 10 mg tablet administered twice daily. Analysis of the in vivo published data for the 10 mg tablet using FTPK software can reveal not only the two absorption phases but also the duration of each phase and their corresponding input rates.</p>
+      <p>The analytical power of FTPK software enhances the rational design of modified-release formulations. This is because sustained-release formulations are typically designed to exhibit an initial immediate-release phase followed by a prolonged sustained-release phase. Consider a company aiming to develop a 20 mg once-daily formulation to replace an existing 10 mg tablet administered twice daily. Analysis of the in vivo published data for the 10 mg tablet using FTPK software can reveal not only the two absorption phases but also the duration of each phase and their corresponding input rates. The targeted release profile of the new formulation is derived from this analysis and optimized according to the company&rsquo;s specifications.</p>
       <span class="service-tag">PK · Development</span>
     </div>
     <div class="service-card">
@@ -1658,6 +1700,42 @@ nav { background: rgba(14,48,56,.96); border-bottom: 1px solid rgba(255,255,255,
       <h3>Dermopharmaceutics Lab</h3>
       <p>In a GLP-certified animal laboratory, studies on skin pharmacology, skin toxicity, oxidative stress, antioxidants, and topical preparations are conducted. Examples of studies carried out in the past include the assessment of the healing potential of various compounds, the evaluation of dermatological effects of acute and long-term UV-C exposure, and the in vitro assessment of the effects of portable, domestic UV-C disinfection devices on skin fibroblasts.</p>
       <span class="service-tag">Skin · Regulatory</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── ROADMAP ───────────────────────────────────────────────── -->
+<section id="roadmap" aria-labelledby="roadmap-title">
+  <div class="section-header fade-in">
+    <span class="section-tag">Research Roadmap</span>
+    <h2 class="section-title" id="roadmap-title">Where we are <strong>heading</strong></h2>
+    <p class="section-sub">Research targets currently under development &mdash; not services offered today.</p>
+  </div>
+
+  <div class="roadmap-grid fade-in">
+    <div class="roadmap-card">
+      <span class="roadmap-badge">In development</span>
+      <h3>An in vitro system based on the F.A.T. concept</h3>
+      <p>
+        We are constructing an in vitro system based on the Finite Absorption Time concept,
+        predicting oral drug absorption in terms of both the extent and the rate of absorption.
+      </p>
+    </div>
+    <div class="roadmap-card">
+      <span class="roadmap-badge">In development</span>
+      <h3>Absolute bioavailability without intravenous administration</h3>
+      <p>
+        Today, the FTPK software yields a lower boundary of absolute bioavailability from an oral study alone
+        (<a href="#calculator">try it above</a>). Our ultimate target in MIDD is the value itself:
+        a methodology for estimating absolute bioavailability without intravenous administration.
+      </p>
+      <p>
+        This entails a drug development strategy based on an in vivo six-volunteer study analysed with the FTPK software;
+        population analyses providing separate estimates, with their uncertainties, for absolute bioavailability F and
+        the volume of distribution of the central compartment V<sub>c</sub>, where currently only the composite
+        F/V<sub>c</sub> is reported; and assessment of the extent of absorption in bioequivalence studies in terms of
+        the bioavailable fraction.
+      </p>
     </div>
   </div>
 </section>
